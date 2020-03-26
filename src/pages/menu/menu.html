@@ -1,0 +1,39 @@
+<!--
+  Generated template for the MenuPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>মেনু </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<h1>ঘোষণা </h1>
+  <ion-slides class="slider" >
+
+  <ion-slide *ngFor="let post of announcement_posts" (click)="openReadPage(post)">
+     <img src="{{post.featured_image_src}}">
+  </ion-slide>  
+
+  </ion-slides>
+  <h1>নিউজ</h1>
+  <ion-list>
+        
+
+        <button ion-item *ngFor="let post of news_posts" (click)="openReadPage(post)">
+            <ion-thumbnail item-start>
+              <img src="{{post.featured_image_src}}">
+            </ion-thumbnail>
+            <ion-label>
+              <h2 [innerHTML]="post.title.rendered"></h2>
+              <p [innerHTML]="post.content.rendered | slice:0:200"> </p>
+            </ion-label>
+        </button>
+
+        
+    </ion-list>
+
+</ion-content>

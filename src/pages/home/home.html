@@ -1,17 +1,51 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>
+      শাব্দিক- হোম 
+    </ion-title>
   </ion-navbar>
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="topTab" color="" value="latest">
+      <ion-segment-button value="latest" (click)="listPosts('latest')">
+        নতুন প্রকাশিত
+      </ion-segment-button>
+      <ion-segment-button value="popular" (click)="listPosts('popular')">
+        জনপ্রিয় লেখা
+      </ion-segment-button>      
+      <ion-segment-button value="bises-sonkhya" (click)="listPosts('bises-sonkhya')">
+        বিশেষ সংখ্যা 
+      </ion-segment-button>
+      <ion-segment-button value="puja-sonkhya" (click)="listPosts('puja-sonkhya')">
+        পূজাসংখ্যা 
+      </ion-segment-button>      
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
-</ion-content>
+
+
+<ion-content>
+
+
+      <ion-list>
+        
+
+        <button ion-item *ngFor="let post of posts" (click)="openReadPage(post)">
+            <ion-thumbnail item-start>
+              <img src="{{post.featured_image_src}}">
+            </ion-thumbnail>
+            <ion-label>
+              <h2 [innerHTML]="post.title.rendered"></h2>
+              <p [innerHTML]="post.content.rendered | slice:0:200"> </p>
+            </ion-label>
+        </button>
+
+        
+      </ion-list>
+
+      
+
+
+
+
+    </ion-content>
