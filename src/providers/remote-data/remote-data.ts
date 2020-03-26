@@ -22,27 +22,27 @@ export class RemoteDataProvider {
     
     if(type=='popular')
     {
-      this.url = 'https://saabdik.com/wp-json/wp/v2/posts?per_page=10&filter[tag]=popular';
+      this.url = 'https://saabdik.com/wp-json/wp/v2/posts?per_page=10&filter[tag]=popular&_embed';
     }
     else if(type=='bises-sonkhya')
     {
-       this.url = 'https://saabdik.com/wp-json/wp/v2/posts?per_page=10&filter[cat]=29';
+       this.url = 'https://saabdik.com/wp-json/wp/v2/posts?per_page=10&filter[cat]=29&_embed';
     }
     else if(type=='puja-sonkhya')
     {
-       this.url = 'https://saabdik.com/wp-json/wp/v2/posts?per_page=10&filter[tag]=puja-2019';
+       this.url = 'https://saabdik.com/wp-json/wp/v2/posts?per_page=10&filter[tag]=puja-2019&_embed';
     }
     else if(type=='news')
     {
-       this.url = 'https://saabdik.com/wp-json/wp/v2/posts?per_page=10&filter[cat]=65';
+       this.url = 'https://saabdik.com/wp-json/wp/v2/posts?per_page=10&filter[cat]=65&_embed';
     }
     else if(type=='announcement')
     {
-       this.url = 'https://saabdik.com/wp-json/wp/v2/posts?per_page=10&filter[cat]=66';
+       this.url = 'https://saabdik.com/wp-json/wp/v2/posts?per_page=10&filter[cat]=66&_embed';
     } 
     else
     {
-    	this.url = 'https://saabdik.com/wp-json/wp/v2/posts?per_page=10&filter[tag]=V2';
+    	this.url = 'https://saabdik.com/wp-json/wp/v2/posts?per_page=10&filter[tag]=V2&_embed';
     } 
     console.log(this.url);
     return this.http.get(this.url).map(res => res );

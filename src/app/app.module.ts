@@ -16,6 +16,7 @@ import { MenuPage } from '../pages/menu/menu';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RemoteDataProvider } from '../providers/remote-data/remote-data';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { RemoteDataProvider } from '../providers/remote-data/remote-data';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    RemoteDataProvider
+    RemoteDataProvider,
+    SocialSharing
   ]
 })
 export class AppModule {}

@@ -14,12 +14,15 @@
 	<ion-card>
 	  <img src="{{post.featured_image_src}}"/>
 	  <ion-card-content>
-	    <ion-card-title [innerHTML]="post.title.rendered">
+	    <ion-card-title class="card-title" [innerHTML]="post.title.rendered">
 	      
 	      </ion-card-title>
+	       <h2 class="card-subtitle"> <ion-icon name="create"></ion-icon> {{this.post._embedded.author[0].name}}</h2>
 	    <p text-justify class="lg-text" [innerHTML]="post.content.rendered">
 	    </p>
+	    <button ion-button block color="secondary" (click)="sharePost(post)">শেয়ার করুন</button>
 	  </ion-card-content>
+
 	</ion-card>
 
 </ion-content>
