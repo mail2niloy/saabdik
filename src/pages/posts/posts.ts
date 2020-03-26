@@ -16,7 +16,11 @@ import { ReadPage } from '../read/read';
 export class PostsPage {
   loading:any;
   category:any;
-  posts:any;
+  posts:any = [];  
+  data: any = [];
+  page = 1;
+  per_page = 7;
+  errorMessage:any;
   constructor(public navCtrl: NavController, public navParams: NavParams, private loadingController: LoadingController, public RemoteDataProvider: RemoteDataProvider) {
   	this.category = this.navParams.get('category');
   }
@@ -24,10 +28,37 @@ export class PostsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad PostsPage');
     this.presentLoadingDefault();
-    this.RemoteDataProvider.listCategoryPosts(this.category.id).subscribe(data => {
+    this.RemoteDataProvider.listCategoryPosts(this.category.id, this.per_page, this.page).subscribe(data => {
         this.posts = data;
         this.loading.dismiss();
         console.log(data)  });
+  }
+
+  doInfinite(infiniteScroll) {
+    this.page = this.page+1;
+    setTimeout(() => {
+      this.RemoteDataProvider.listCategoryPosts(this.category.id, this.per_page, this.page)
+         .subscribe(
+           res => {
+            //this.latest_posts = res;
+
+             this.data = res;
+             /*this.perPage = this.data.per_page;
+             this.totalData = this.data.total;
+             this.totalPage = this.data.total_pages;
+             */
+             for(let i=0; i<this.data.length; i++) {
+                
+                this.posts.push(this.data[i]);
+                
+               
+             }
+           },
+           error =>  this.errorMessage = <any>error);
+
+      console.log('Async operation has ended');
+      infiniteScroll.complete();
+    }, 4000);
   }
 
   presentLoadingDefault() {

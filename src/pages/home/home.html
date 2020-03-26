@@ -44,6 +44,13 @@
         
       </ion-list>
 
+      <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+       <ion-infinite-scroll-content
+          loadingSpinner="bubbles"
+          loadingText="আরো লেখা পড়ুন...">
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+
       
 
 

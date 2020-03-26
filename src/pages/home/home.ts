@@ -12,12 +12,17 @@ import { RemoteDataProvider } from '../../providers/remote-data/remote-data';
 })
 export class HomePage {
 	posts: any = [];
+  data: any = [];
   latest_posts: any = [];
   popular_posts: any = [];
   bises_sonkhya_posts: any = [];
   puja_sonkhya_posts: any = [];
   url:any;
   loading:any;
+  page=1;
+  per_page=7;
+  errorMessage:any;
+  type:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public httpClient: HttpClient, private loadingController: LoadingController, public RemoteDataProvider: RemoteDataProvider) {
   	
@@ -29,6 +34,7 @@ export class HomePage {
   listPosts(type : any)
   {
     //this.presentLoadingDefault();
+    this.type = type;
     if(type=='popular')
     {
       this.posts = this.popular_posts;
@@ -67,24 +73,65 @@ export class HomePage {
 
   ionViewDidLoad() {
     this.presentLoadingDefault();
-    this.RemoteDataProvider.listPosts('latest').subscribe(data => {
+    this.RemoteDataProvider.listPosts('latest', this.per_page, this.page).subscribe(data => {
         this.latest_posts = data;
         this.listPosts('latest');
         this.loading.dismiss();
         console.log(data)  });
-    this.RemoteDataProvider.listPosts('popular').subscribe(data => {
+    this.RemoteDataProvider.listPosts('popular', this.per_page, this.page).subscribe(data => {
         this.popular_posts = data;
         console.log(data)  });
-    this.RemoteDataProvider.listPosts('bises-sonkhya').subscribe(data => {
+    this.RemoteDataProvider.listPosts('bises-sonkhya', this.per_page, this.page).subscribe(data => {
         this.bises_sonkhya_posts = data;
         console.log(data)  });
-    this.RemoteDataProvider.listPosts('puja-sonkhya').subscribe(data => {
+    this.RemoteDataProvider.listPosts('puja-sonkhya', this.per_page, this.page).subscribe(data => {
         this.puja_sonkhya_posts = data;
         console.log(data)  });    
 
     
     console.log('ionViewDidLoad AboutPage');
   }
+
+  doInfinite(infiniteScroll) {
+    this.page = this.page+1;
+    setTimeout(() => {
+      this.RemoteDataProvider.listPosts(this.type, this.per_page, this.page)
+         .subscribe(
+           res => {
+            //this.latest_posts = res;
+
+             this.data = res;
+             /*this.perPage = this.data.per_page;
+             this.totalData = this.data.total;
+             this.totalPage = this.data.total_pages;
+             */
+             for(let i=0; i<this.data.length; i++) {
+                if(this.type=='popular')
+                {
+                  this.popular_posts.push(this.data[i]);
+                }
+                else if(this.type=='bises-sonkhya')
+                {
+                   this.bises_sonkhya_posts.push(this.data[i]);
+                }
+                else if(this.type=='puja-sonkhya')
+                {
+                   this.puja_sonkhya_posts.push(this.data[i]);
+                } 
+                else
+                {
+                  this.latest_posts.push(this.data[i]);
+                }
+               
+             }
+           },
+           error =>  this.errorMessage = <any>error);
+
+      console.log('Async operation has ended');
+      infiniteScroll.complete();
+    }, 4000);
+  }
+
   //Move to Next slide
   slideNext(object, slideView) {
     slideView.slideNext(500).then(() => {

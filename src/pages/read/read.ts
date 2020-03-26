@@ -19,6 +19,8 @@ export class ReadPage {
   author : any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public SocialSharing:SocialSharing) {
   	this.post = this.navParams.get('post');
+  	console.log(this.post);
+  	//this.author =  "";
   	//this.author = this.post._embedded.author[0].name;
   }
 

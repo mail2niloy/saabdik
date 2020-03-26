@@ -20,12 +20,18 @@
               <img src="{{post.featured_image_src}}">
             </ion-thumbnail>
             <ion-label>
-              <h2 [innerHTML]="post.title.rendered"></h2>
-              <p [innerHTML]="post.content.rendered | slice:0:200"> </p>
+              <p class="post-title" [innerHTML]="post.title.rendered"></p>
+              <p class="post-subtitle">{{post._embedded.author[0].name}}</p>
             </ion-label>
         </button>
 
         
       </ion-list>
+      <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+       <ion-infinite-scroll-content
+          loadingSpinner="bubbles"
+          loadingText="আরো লেখা পড়ুন...">
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
 
 </ion-content>

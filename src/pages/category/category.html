@@ -16,8 +16,8 @@
         
 		<button ion-item *ngFor="let category of categories" (click)="getCategoryPosts(category)">  
           
-          <ion-label>
-            <h2>{{category.name}}</h2>
+          <ion-label >
+            <p class="cat-name">{{category.name}}</p>
           </ion-label>
         </button>
 

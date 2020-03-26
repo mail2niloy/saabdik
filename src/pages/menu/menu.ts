@@ -23,17 +23,20 @@ export class MenuPage {
 	announcement_posts: any = [];
 	url:any;
     loading:any;
+    page=1;
+  	per_page=5;
+  	errorMessage:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public httpClient: HttpClient, private loadingController: LoadingController, public RemoteDataProvider: RemoteDataProvider) {
   }
 
   ionViewDidLoad() {
   	this.presentLoadingDefault();
-    this.RemoteDataProvider.listPosts('news').subscribe(data => {
+    this.RemoteDataProvider.listPosts('news', this.per_page, this.page).subscribe(data => {
         this.news_posts = data;
         this.loading.dismiss();
         console.log(data)  });
-    this.RemoteDataProvider.listPosts('announcement').subscribe(data => {
+    this.RemoteDataProvider.listPosts('announcement', this.per_page, this.page).subscribe(data => {
         this.announcement_posts = data;
         console.log(data)  });
     console.log('ionViewDidLoad CategoryPage');
