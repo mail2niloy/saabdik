@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { PostsPage } from '../posts/posts';
 
+
 @Component({
   selector: 'page-category',
   templateUrl: 'category.html',
@@ -32,7 +33,7 @@ export class CategoryPage {
   }
   presentLoadingDefault() {
      this.loading = this.loadingController.create({
-      content: 'Please wait...'
+      content: 'অপেক্ষা করুন....'
     });
 
     this.loading.present();

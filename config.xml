@@ -3,7 +3,7 @@
     <name>শাব্দিক</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework.com" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://localhost:8100" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -99,4 +99,17 @@
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^4.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
+    <allow-navigation href="http://localhost:8100" sessionid="c38d784d" />
+    <allow-navigation href="http://localhost:8101" sessionid="08b7058d" />
+    <allow-navigation href="http://localhost:8103" sessionid="b5a8b012" />
+    <allow-navigation href="http://localhost:8102" sessionid="9edcc51b" />
+    <allow-navigation href="http://localhost:8105" sessionid="7509c99c" />
+    <allow-navigation href="http://localhost:8107" sessionid="595b4924" />
+    <allow-navigation href="http://localhost:8108" sessionid="67f86cec" />
+    <allow-navigation href="http://localhost:8104" sessionid="35eb45a4" />
+    <allow-navigation href="http://localhost:8111" sessionid="2ff580e1" />
+    <allow-navigation href="http://localhost:8112" sessionid="4e616cd2" />
+    <allow-navigation href="http://localhost:8113" sessionid="caf96661" />
+    <allow-navigation href="http://localhost:8109" sessionid="e1d499fd" />
+    <allow-navigation href="http://localhost:8106" sessionid="4098a289" />
 </widget>

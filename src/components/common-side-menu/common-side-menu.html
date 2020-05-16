@@ -1,0 +1,31 @@
+<!-- Generated template for the CommonSideMenuComponent component -->
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <button ion-item (click)="openProfilePage()" *ngIf="isUserLoggedIn">
+        আপনার প্রোফাইল 
+      </button>
+      <button ion-item (click)="openLoginPage()" *ngIf="!isUserLoggedIn">
+        লগইন করুন 
+      </button>
+      <button ion-item (click)="openProfilePage()" *ngIf="isUserLoggedIn">
+         ফেভারিট 
+      </button>
+      <button ion-item (click)="openAboutPage()">
+        আমাদের সমন্ধে
+      </button>
+      <button ion-item (click)="openProfilePage()">
+        আপডেট
+      </button>
+      <button ion-item (click)="logout()" *ngIf="isUserLoggedIn">
+        লগ আউট
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-nav id="nav" #content [root]="rootPage"></ion-nav>

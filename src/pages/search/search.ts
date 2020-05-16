@@ -3,19 +3,19 @@ import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-an
 import { RemoteDataProvider } from '../../providers/remote-data/remote-data';
 import { ReadPage } from '../read/read';
 /**
- * Generated class for the PostsPage page.
+ * Generated class for the searchPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
 
 @Component({
-  selector: 'page-posts',
-  templateUrl: 'posts.html',
+  selector: 'page-search',
+  templateUrl: 'search.html',
 })
-export class PostsPage {
+export class SearchPage {
   loading:any;
-  category:any;
+  searchText:any;
   posts:any = [];  
   data: any = [];
   page = 1;
@@ -23,13 +23,13 @@ export class PostsPage {
   errorMessage:any;
   public pagingEnabled: boolean = true;
   constructor(public navCtrl: NavController, public navParams: NavParams, private loadingController: LoadingController, public RemoteDataProvider: RemoteDataProvider) {
-  	this.category = this.navParams.get('category');
+  	this.searchText = this.navParams.get('searchText');
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PostsPage');
+    console.log('ionViewDidLoad SearchPage');
     this.presentLoadingDefault();
-    this.RemoteDataProvider.listCategoryPosts(this.category.id, this.per_page, this.page).subscribe(data => {
+    this.RemoteDataProvider.listSearchPosts(this.searchText, this.per_page, this.page).subscribe(data => {
         this.posts = data;
         this.loading.dismiss();
         console.log(data)  });
@@ -38,7 +38,7 @@ export class PostsPage {
   doInfinite(infiniteScroll) {
     this.page = this.page+1;
     setTimeout(() => {
-      this.RemoteDataProvider.listCategoryPosts(this.category.id, this.per_page, this.page)
+      this.RemoteDataProvider.listSearchPosts(this.searchText, this.per_page, this.page)
          .subscribe(
            res => {
             //this.latest_posts = res;

@@ -10,7 +10,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content >
 	<ion-card>
 	  <img src="{{post.featured_image_src}}"/>
 	  <ion-card-content>
@@ -24,5 +24,27 @@
 	  </ion-card-content>
 
 	</ion-card>
+  <ion-card>
+    <ion-card-content>
+      <button ion-button block (click)="createComment()">আপনার মতামত দিন</button>   
+	    <p class="bold-title">মতামত:</p>
+      <ion-item *ngFor="let comment of comments">
+        <ion-avatar item-start>
+          <img src="{{comment.author_avatar_urls[24]}}">
+        </ion-avatar>
+        <h2>{{comment.author_name}}</h2>
+        <p text-wrap [innerHTML]="comment.content.rendered"></p>
+      </ion-item>
+      <ion-infinite-scroll [enabled]="morePagesAvailable" (ionInfinite)="loadMoreComments($event)">
+        <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="Loading more comments...">
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+     </ion-card-content>
+  </ion-card>
+    
+	 
+
 
 </ion-content>

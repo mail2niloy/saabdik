@@ -6,11 +6,34 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>মেনু </ion-title>
+    <ion-title>
+      Menu
+    </ion-title>
   </ion-navbar>
 </ion-header>
-
 <ion-content padding>
+  
+  <div class="div-row"  *ngIf="!isUserLoggedIn">
+    <button ion-item  (click)="openLoginPage()">Login
+    </button>
+  </div>
+  <div class="div-row"  *ngIf="isUserLoggedIn">
+    <button ion-item  (click)="openLoginPage()">প্রোফাইল
+    </button>
+  </div>
+
+
+  <div class="div-row"  style="text-align: center; margin-top: 70px;">
+    <h2>Razorpay Ionic 3 Demo</h2>
+    <img style="width: 300px; display: inline-block" src="./assets/icon/demo-tshirt.svg" />
+
+    <div>
+      <button ion-button (click)="pay()">
+        Pay with Razorpay
+      </button>
+    </div>
+  </div>
+
 	<h1>ঘোষণা </h1>
   <ion-slides class="slider" >
 
