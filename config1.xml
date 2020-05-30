@@ -1,11 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>শাব্দিক</name>
-    <description>Bengali E-Magazine</description>
-    <author email="mail2niloy@gmail.com" href="http://saabdik.com/">Niloy Sarkar</author>
-    <content original-src="index.html" src="http://192.168.0.103:8100" />
+    <description>An awesome Ionic/Cordova app.</description>
+    <author email="hi@ionicframework.com" href="http://ionicframework.com/">Ionic Framework Team</author>
+    <content src="index.html" />
     <access origin="*" />
-    <allow-navigation href="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
@@ -98,6 +97,7 @@
     <plugin name="cordova-plugin-statusbar" spec="2.4.2" />
     <plugin name="cordova-plugin-device" spec="2.0.2" />
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
+    <plugin name="cordova-plugin-ionic-webview" spec="^4.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <allow-navigation href="http://localhost:8100" sessionid="c38d784d" />
     <allow-navigation href="http://localhost:8101" sessionid="08b7058d" />
@@ -112,7 +112,4 @@
     <allow-navigation href="http://localhost:8113" sessionid="caf96661" />
     <allow-navigation href="http://localhost:8109" sessionid="e1d499fd" />
     <allow-navigation href="http://localhost:8106" sessionid="4098a289" />
-    <allow-navigation href="http://192.168.0.104:8100" />
-    <allow-navigation href="http://192.168.0.104:8101" />
-    <allow-navigation href="http://192.168.0.103:8100" />
 </widget>

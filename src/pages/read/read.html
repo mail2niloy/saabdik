@@ -19,7 +19,16 @@
 	      </ion-card-title>
 	       <h2 class="card-subtitle"> <ion-icon name="create"></ion-icon> {{post._embedded.author[0].name}}</h2>
 	    <p class="lg-text" [innerHTML]="post.content.rendered">
-	    </p>
+	    </p>     
+         
+        <button ion-button icon-only *ngIf="isLiked" (click)="likePost()">
+          <ion-icon color="danger" name="heart"></ion-icon>
+        </button>
+        <button ion-button icon-only *ngIf="!isLiked" (click)="likePost()">
+          <ion-icon name="heart-outline"></ion-icon>
+        </button>
+        {{noOfLikes}} Likes
+      
 	    <button ion-button block color="secondary" (click)="sharePost(post)">শেয়ার করুন</button>
 	  </ion-card-content>
 

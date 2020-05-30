@@ -11,22 +11,40 @@
 	</ion-header>
 
       <ion-content fullscreen="true" slot="fixed" *ngIf="isUserLoggedIn">
-          <div class="card" >
-            <div class="header">
-              <div class="avatar">
-                <img src="../../assets/imgs/default-avatar.png" alt="">
-              </div>
-            </div>
-            <div class="card-body">
-              <div class="user-meta ion-text-center">
-                <h3 class="">Name : {{userInfo.displayName}}</h3>
-                <h5 class="">{{userInfo.username}}</h5>
-                <h6 class="">{{userInfo.email}}
-                </h6>
-              </div>
+          	<div class="card" >
+	            <div class="header">
+	              <div class="avatar">
+	                <img src="../../assets/imgs/default-avatar.png" alt="">
+	              </div>
+	            </div>
+	            <div class="card-body">
+	              <div class="user-meta ion-text-center">
+	                <h3 class="">Name : {{userInfo.name}}</h3>
+	                <h5 class="">{{userInfo.billing_phone}}</h5>
+	                <h6 class="">{{userInfo.email}}
+	                </h6>
+	              </div>
 
-              <button ion-button expand="full" color="primary" (click)="logout()">LOGOUT</button>
+	              <button ion-button expand="full" color="primary" (click)="logout()">LOGOUT</button>
 
-            </div>
-          </div>
+	            </div>
+          	</div>
+          	মেম্বারশিপ প্ল্যান 
+          	<ion-card>
+			  <ion-card-header>
+			    এখনকার প্ল্যান - 
+			  </ion-card-header>
+			  <ion-list>
+			  	<button ion-item>			  		
+			      <ion-icon name="medical" item-start></ion-icon>
+			      ফ্রি মেম্বারশিপ
+			    </button>
+			    <button ion-button color="secondary" (click)="openMembeshipPage()">   	
+					  প্রিমিয়াম মেম্বারশিপ গ্রহণ করুন (&#x20B9;200 <s>&#x20B9;500</s>  প্রতি বছর )			      
+			    </button>
+			  </ion-list>
+			</ion-card>
+
+
+
       </ion-content>

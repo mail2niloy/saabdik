@@ -11,7 +11,7 @@
       <div class="div-slides"> 
         <ion-label>
         <img src="{{userInfo.imageUrl}}" />  
-        <h4 class="tam-title">{{userInfo.displayName}}</h4>
+        <h4 class="tam-title">{{userInfo.name}}</h4>
         <p class="tam-author">{{userInfo.email}}</p>
         </ion-label>
         <button ion-button clear (click)="logout()">Logout</button>
@@ -29,7 +29,7 @@
 
       <ion-item>
         <ion-label color="primary">Display Name</ion-label>
-        <ion-input type="text" formControlName="displayName" value="{{userInfo.displayName}}"></ion-input>
+        <ion-input type="text" formControlName="name" value="{{userInfo.displayName}}"></ion-input>
       </ion-item>
 
       <ion-item>
@@ -38,7 +38,7 @@
       </ion-item>
       <ion-item>
         <ion-label color="primary">Mobile No.</ion-label>
-        <ion-input type="tel" maxlength="10" formControlName="username" placeholder="Enter you mobile number" class="form-controll" required></ion-input>
+        <ion-input type="tel" maxlength="10" formControlName="billing_phone" placeholder="Enter you mobile number" class="form-controll" required></ion-input>
       </ion-item>
 
       <ion-item>

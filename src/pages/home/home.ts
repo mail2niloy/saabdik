@@ -25,6 +25,22 @@ export class HomePage {
   popular_posts: any = [];
   bises_sonkhya_posts: any = [];
   puja_sonkhya_posts: any = [];
+  khalar_dunia_posts: any = [];
+  anno_rokom_review_posts: any = [];
+  life_style_posts: any = [];
+  fitness_posts: any = [];
+  bhraman_posts: any = [];
+  puran_katha_posts: any = [];
+  jibon_kahini_posts: any = [];
+  desh_bidesh_posts: any = [];
+  book_review_posts: any = [];
+  beginners_guide_posts: any = [];
+  inspiration_posts: any = [];
+  moner_katha_posts: any = [];
+  aalap_posts: any = [];
+  fashion_posts: any = [];
+  photography_posts: any = [];
+  heseler_katha_posts: any = [];
   url:any;
   loading:any;
   page=1;
@@ -35,6 +51,7 @@ export class HomePage {
   items: any = [];
   public pagingEnabled: boolean = true;
   public homeEnabled: boolean;
+  public part2: boolean = false;
   isUserLoggedIn : any;
   userInfo: any;
 
@@ -57,6 +74,7 @@ export class HomePage {
       this.topTab = "home";
       this.homeEnabled = true;
       this.latest_posts = null;
+      this.showHome();
       
       
       
@@ -82,44 +100,91 @@ export class HomePage {
         this.items = ['Amsterdam','Bogota','Mumbai','San José','Salvador']; 
   }
     
+  showHome()
+  {
+    this.homeEnabled = true;
+    this.topTab = "home";
+    this.presentLoadingDefault();
+    Observable.forkJoin(
+      this.RemoteDataProvider.listUsers('author', 10, 1),
+      this.RemoteDataProvider.listPosts('latest', this.per_page, this.page),
+      this.RemoteDataProvider.listPosts('popular', this.per_page, this.page),
+      this.RemoteDataProvider.listPosts('khalar-dunia', this.per_page, this.page),
+      this.RemoteDataProvider.listPosts('anno-rokom-review', this.per_page, this.page),
+      this.RemoteDataProvider.listPosts('life-style', this.per_page, this.page),
+      this.RemoteDataProvider.listPosts('fitness', this.per_page, this.page),
+      this.RemoteDataProvider.listPosts('bhraman', this.per_page, this.page),
+      this.RemoteDataProvider.listPosts('puran-katha', this.per_page, this.page),
+      this.RemoteDataProvider.listPosts('jibon-kahini', this.per_page, this.page),
+      )
+      .subscribe(data => {        
+        this.data = data;
+         this.authors = this.data[0];
+        this.latest_posts = this.data[1];
+        this.popular_posts = this.data[2];
+        this.khalar_dunia_posts = this.data[3];
+        this.anno_rokom_review_posts = this.data[4];
+        this.life_style_posts = this.data[5];
+        this.fitness_posts = this.data[6];
+        this.bhraman_posts = this.data[7];
+        this.puran_katha_posts = this.data[8];
+        this.jibon_kahini_posts = this.data[9];
+        console.log(this.data);
+        //console.log(JSON.stringify(this.data));
+        this.loading.dismiss();
+      });
 
-  
+  }
+
+  loadMore(infiniteScroll)
+  {    
+    
+    Observable.forkJoin(
+      this.RemoteDataProvider.listPosts('desh-bidesh', this.per_page, this.page),
+      this.RemoteDataProvider.listPosts('book-review', this.per_page, this.page),
+      this.RemoteDataProvider.listPosts('beginners-guide', this.per_page, this.page),
+      this.RemoteDataProvider.listPosts('inspiration', this.per_page, this.page),
+      this.RemoteDataProvider.listPosts('moner-katha', this.per_page, this.page),
+      this.RemoteDataProvider.listPosts('aalap', this.per_page, this.page),
+      this.RemoteDataProvider.listPosts('fashion', this.per_page, this.page),
+      this.RemoteDataProvider.listPosts('photography', this.per_page, this.page),
+      this.RemoteDataProvider.listPosts('heseler-katha', this.per_page, this.page)
+      )
+      .subscribe(data => {        
+        this.data = data;
+        this.desh_bidesh_posts = this.data[0];
+        this.book_review_posts = this.data[1];
+        this.beginners_guide_posts = this.data[2];
+        this.inspiration_posts = this.data[3];
+        this.moner_katha_posts = this.data[4];
+        this.aalap_posts = this.data[5];
+        this.fashion_posts = this.data[6];
+        this.photography_posts = this.data[7];
+        this.heseler_katha_posts = this.data[8];
+       
+        //console.log(JSON.stringify(this.data));
+        this.pagingEnabled = false;
+        infiniteScroll.complete();
+        this.part2 = true;
+      });
+
+  }
 
   listPosts(type : any)
   {
-    //this.presentLoadingDefault();
-    
     this.pagingEnabled = true;
-    this.type = type;
-    if(type=='home')
-    {
-      this.homeEnabled = true;
-      this.posts = this.latest_posts;
-    }
-    else if(type=='popular')
-    {
-      this.homeEnabled = false;
-      this.posts = this.popular_posts;
-    }
-    else if(type=='bises-sonkhya')
-    {
-       this.homeEnabled = false;
-       this.posts = this.bises_sonkhya_posts;
-    }
-    else if(type=='puja-sonkhya')
-    {
-       this.homeEnabled = false;
-       this.posts = this.puja_sonkhya_posts;
-    } 
-    else
-    {
-      this.homeEnabled = false;
-      this.posts = this.latest_posts;
-    }
+    this.homeEnabled = false;
+    this.presentLoadingDefault();
+    this.remoteData = this.RemoteDataProvider.listPosts(type, this.per_page, this.page);
+    this.remoteData.subscribe(
+          data => {
+        this.posts = data;
+        this.loading.dismiss();
+        console.log(data)  });      
 
-    //this.loading.dismiss();
-    
   }
+
+  
 
   presentLoadingDefault() {
      this.loading = this.loadingController.create({
@@ -137,28 +202,9 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
-    this.presentLoadingDefault();
-    this.remoteData = this.RemoteDataProvider.listPosts(this.type, this.per_page, this.page);
-    this.remoteData.subscribe(
-          data => {
-        this.latest_posts = data;
-        this.listPosts('home');
-        this.loading.dismiss();
-        console.log(data)  });
-    this.RemoteDataProvider.listPosts('popular', this.per_page, this.page).subscribe(data => {
-        this.popular_posts = data;
-        console.log(data)  });
-    this.RemoteDataProvider.listPosts('bises-sonkhya', this.per_page, this.page).subscribe(data => {
-        this.bises_sonkhya_posts = data;
-        console.log(data)  });
-    this.RemoteDataProvider.listPosts('puja-sonkhya', this.per_page, this.page).subscribe(data => {
-        this.puja_sonkhya_posts = data;
-        console.log(data)  });  
+      
 
-    this.RemoteDataProvider.listUsers('author', 10, 1).subscribe(data => {
-        this.authors = data;
-        console.log(data);  
-      });  
+    
     
     console.log('ionViewDidLoad AboutPage');
   }

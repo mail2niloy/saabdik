@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AuthenticationService } from '../../services/authentication.service';
 import { BasicService } from '../../services/basic.service';
 import { HomePage } from '../home/home';
+import { MembershipPage } from '../membership/membership';
 /**
  * Generated class for the ProfilePage page.
  *
@@ -38,6 +39,10 @@ export class ProfilePage {
         this.isUserLoggedIn = false;
         //this.logout();
       });
+  }
+  openMembeshipPage()
+  {
+  	this.navCtrl.push(MembershipPage);
   }
   logout()
   {

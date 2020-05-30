@@ -3,16 +3,34 @@
 <ion-header class="shrinkable">
 <common-header></common-header>
 <ion-toolbar>
-    <ion-segment [(ngModel)]="topTab"  value="home">
-      <ion-segment-button value="home"  (click)="listPosts('home')">
+    <ion-segment mode="md" scrollable="true" [(ngModel)]="topTab"  value="home">
+      <ion-segment-button value="home"  (click)="showHome()">
         হোম 
       </ion-segment-button>
-      <ion-segment-button value="latest"  (click)="listPosts('latest')">
-        নতুন প্রকাশিত
+      <ion-segment-button value="chotogolpo"  (click)="listPosts('chotogolpo')">
+        ছোট গল্প
       </ion-segment-button>
-      <ion-segment-button value="popular" (click)="listPosts('popular')">
-        জনপ্রিয় লেখা
-      </ion-segment-button>    
+      <ion-segment-button value="rahoshyo-golpo" (click)="listPosts('rahoshyo-golpo')">
+        রহস্য গল্প
+      </ion-segment-button> 
+      <ion-segment-button value="bhuter-golpo" (click)="listPosts('bhuter-golpo')">
+        ভুতের গল্প
+      </ion-segment-button>
+      <ion-segment-button value="kobita" (click)="listPosts('kobita')">
+        কবিতা
+      </ion-segment-button>
+      <ion-segment-button value="onugolpo"  (click)="listPosts('onugolpo')">
+        অনুগল্প
+      </ion-segment-button>
+      <ion-segment-button value="bises-rochona" (click)="listPosts('bises-rochona')">
+        বিশেষ রচনা
+      </ion-segment-button> 
+      <ion-segment-button value="dharabahik-rachona" (click)="listPosts('dharabahik-rachona')">
+        ধারাবাহিক
+      </ion-segment-button>       
+      <ion-segment-button value="itihaser-patai" (click)="listPosts('itihaser-patai')">
+        ঐতিহাসিক 
+      </ion-segment-button>   
       
         
     </ion-segment>
@@ -22,20 +40,63 @@
 
 
 
-<ion-content >
+<ion-content no-padding color="backgray">
+    <div class="backPurple"></div>
+    <div>
+    <div class="div-row"  *ngIf="homeEnabled">
+      
+      <ion-label text-left>নতুন প্রকাশিত</ion-label>
+      <div class="div-slides">  
+      <ion-slides pager="false" slidesPerView="2.6" padding-start>
+        <ion-slide *ngFor="let post of latest_posts" (click)="openReadPage(post)">
+          <ion-card class="product" >
+            <div class="image" routerLink="/product-card" routerDirection="forward">
+              <img src="{{post.thumbnail_image_src}}">
+            </div>
+              
+                <ion-label >
+                  <h4 class="tam-title"  [innerHTML]="post.title.rendered"></h4>
+              <p class="tam-author">{{post._embedded.author[0].name}}</p>
+                </ion-label>
+              
+              
+              
+            </ion-card>
+          </ion-slide>
+        </ion-slides>
+      </div>
+    </div>
+  
   
   
   
   <div class="div-row"  *ngIf="homeEnabled">
-    <h4>নতুন প্রকাশিত</h4>
+    <ion-label text-left>ফ্যাশন </ion-label>
     <div class="div-slides">
       <ion-slides   pager="false" slidesPerView="2.6" >
-        <ion-slide *ngFor="let post of posts" (click)="openReadPage(post)">
+        <ion-slide *ngFor="let post of fashion_posts" (click)="openReadPage(post)">
           
                        
               <ion-label>
-              <img src="{{post.featured_image_src}}" />  
-              <h4 class="tam-title" text-wrap [innerHTML]="post.title.rendered"></h4>
+              <img src="{{post.thumbnail_image_src}}" />  
+              <h4 class="tam-title" [innerHTML]="post.title.rendered"></h4>
+              <p class="tam-author">{{post._embedded.author[0].name}}</p>
+              </ion-label>
+          
+        </ion-slide>
+      </ion-slides>
+    </div>
+  </div>
+  <div class="div-row"  *ngIf="homeEnabled">
+    <ion-label text-left>জনপ্রিয় লেখা</ion-label>
+    <div class="div-slides">
+      <ion-slides   pager="false" slidesPerView="3.5" >
+        <ion-slide *ngFor="let post of popular_posts" (click)="openReadPage(post)">
+          
+                       
+              <ion-label>
+              <img src="{{post.thumbnail_image_src}}" />  
+              <h4 class="tam-title" [innerHTML]="post.title.rendered"></h4>
               <p class="tam-author">{{post._embedded.author[0].name}}</p>
               </ion-label>
           
@@ -45,14 +106,14 @@
   </div>
 
   <div class="div-row"  *ngIf="homeEnabled">
-    <h4>রহস্য গল্প</h4>
+    <ion-label text-left>লাইফস্টাইল </ion-label>
     <div class="div-slides">
       <ion-slides   pager="false" slidesPerView="2.6" >
-        <ion-slide *ngFor="let post of popular_posts" (click)="openReadPage(post)">
+        <ion-slide *ngFor="let post of life_style_posts" (click)="openReadPage(post)">
           
                        
               <ion-label>
-              <img src="{{post.featured_image_src}}" />  
+              <img src="{{post.thumbnail_image_src}}" />  
               <h4 class="tam-title" [innerHTML]="post.title.rendered"></h4>
               <p class="tam-author">{{post._embedded.author[0].name}}</p>
               </ion-label>
@@ -62,14 +123,14 @@
     </div>
   </div>
   <div class="div-row"  *ngIf="homeEnabled">
-    <h4>হেঁসেলের এর কথা </h4>
+    <ion-label text-left>ফিটনেস গাইড  </ion-label>
     <div class="div-slides">
       <ion-slides   pager="false" slidesPerView="2.6" >
-        <ion-slide *ngFor="let post of posts" (click)="openReadPage(post)">
+        <ion-slide *ngFor="let post of fitness_posts" (click)="openReadPage(post)">
           
                        
               <ion-label>
-              <img src="{{post.featured_image_src}}" />  
+              <img src="{{post.thumbnail_image_src}}" />  
               <h4 class="tam-title" [innerHTML]="post.title.rendered"></h4>
               <p class="tam-author">{{post._embedded.author[0].name}}</p>
               </ion-label>
@@ -79,14 +140,14 @@
     </div>
   </div>
   <div class="div-row"  *ngIf="homeEnabled">
-    <h4>শাব্দিকের লেখক-লেখিকারা   </h4>
+    <ion-label text-left>শাব্দিকের লেখক-লেখিকারা   </ion-label>
     <div class="div-slides">
-      <ion-slides   pager="false" slidesPerView="2.6" >
+      <ion-slides   pager="false" slidesPerView="4.5" >
         <ion-slide *ngFor="let author of authors">
           
                        
               <ion-label>
-              <img src="{{author.avatar_urls[24]}}" />  
+              <img src="{{author.photo['250']}}" />  
               <p class="tam-author">{{author.name}}</p>
               </ion-label>
           
@@ -95,14 +156,14 @@
     </div>
   </div>
   <div class="div-row"  *ngIf="homeEnabled">
-    <h4>বিশিষ্টদের গল্প  </h4>
+    <ion-label text-left>ভ্রমণ </ion-label>
     <div class="div-slides">
       <ion-slides   pager="false" slidesPerView="2.6" >
-        <ion-slide *ngFor="let post of posts" (click)="openReadPage(post)">
+        <ion-slide *ngFor="let post of bhraman_posts" (click)="openReadPage(post)">
           
                        
               <ion-label>
-              <img src="{{post.featured_image_src}}" />  
+              <img src="{{post.thumbnail_image_src}}" />  
               <h4 class="tam-title" [innerHTML]="post.title.rendered"></h4>
               <p class="tam-author">{{post._embedded.author[0].name}}</p>
               </ion-label>
@@ -112,14 +173,14 @@
     </div>
   </div>
   <div class="div-row"  *ngIf="homeEnabled">
-    <h4>ফ্যাশন </h4>
+    <ion-label text-left>খেলার দুনিয়া  </ion-label>
     <div class="div-slides">
       <ion-slides   pager="false" slidesPerView="2.6" >
-        <ion-slide *ngFor="let post of posts" (click)="openReadPage(post)">
+        <ion-slide *ngFor="let post of khalar_dunia_posts" (click)="openReadPage(post)">
           
                        
               <ion-label>
-              <img src="{{post.featured_image_src}}" />  
+              <img src="{{post.thumbnail_image_src}}" />  
               <h4 class="tam-title" [innerHTML]="post.title.rendered"></h4>
               <p class="tam-author">{{post._embedded.author[0].name}}</p>
               </ion-label>
@@ -129,14 +190,14 @@
     </div>
   </div>
   <div class="div-row"  *ngIf="homeEnabled">
-    <h4>লাইফস্টাইল </h4>
+    <ion-label text-left>পুরানের গল্প  </ion-label>
     <div class="div-slides">
       <ion-slides   pager="false" slidesPerView="2.6" >
-        <ion-slide *ngFor="let post of posts" (click)="openReadPage(post)">
+        <ion-slide *ngFor="let post of puran_katha_posts" (click)="openReadPage(post)">
           
                        
               <ion-label>
-              <img src="{{post.featured_image_src}}" />  
+              <img src="{{post.thumbnail_image_src}}" />  
               <h4 class="tam-title" [innerHTML]="post.title.rendered"></h4>
               <p class="tam-author">{{post._embedded.author[0].name}}</p>
               </ion-label>
@@ -146,14 +207,14 @@
     </div>
   </div>
   <div class="div-row"  *ngIf="homeEnabled">
-    <h4>ফিটনেস গাইড  </h4>
+    <ion-label text-left>বিশিষ্টদের গল্প  </ion-label>
     <div class="div-slides">
       <ion-slides   pager="false" slidesPerView="2.6" >
-        <ion-slide *ngFor="let post of posts" (click)="openReadPage(post)">
+        <ion-slide *ngFor="let post of jibon_kahini_posts" (click)="openReadPage(post)">
           
                        
               <ion-label>
-              <img src="{{post.featured_image_src}}" />  
+              <img src="{{post.thumbnail_image_src}}" />  
               <h4 class="tam-title" [innerHTML]="post.title.rendered"></h4>
               <p class="tam-author">{{post._embedded.author[0].name}}</p>
               </ion-label>
@@ -162,15 +223,15 @@
       </ion-slides>
     </div>
   </div>
-  <div class="div-row"  *ngIf="homeEnabled">
-    <h4>পুরানের গল্প  </h4>
+  <div class="div-row"  *ngIf="homeEnabled && part2">
+    <ion-label text-left>হেঁসেলের এর কথা </ion-label>
     <div class="div-slides">
       <ion-slides   pager="false" slidesPerView="2.6" >
-        <ion-slide *ngFor="let post of posts" (click)="openReadPage(post)">
+        <ion-slide *ngFor="let post of heseler_katha_posts" (click)="openReadPage(post)">
           
                        
               <ion-label>
-              <img src="{{post.featured_image_src}}" />  
+              <img src="{{post.thumbnail_image_src}}" />  
               <h4 class="tam-title" [innerHTML]="post.title.rendered"></h4>
               <p class="tam-author">{{post._embedded.author[0].name}}</p>
               </ion-label>
@@ -179,15 +240,17 @@
       </ion-slides>
     </div>
   </div>
-  <div class="div-row"  *ngIf="homeEnabled">
-    <h4>সমস্যার সমাধান  </h4>
+    
+  
+  <div class="div-row"  *ngIf="homeEnabled && part2">
+    <ion-label text-left>মনের কথা  </ion-label>
     <div class="div-slides">
       <ion-slides   pager="false" slidesPerView="2.6" >
-        <ion-slide *ngFor="let post of posts" (click)="openReadPage(post)">
+        <ion-slide *ngFor="let post of moner_katha_posts" (click)="openReadPage(post)">
           
                        
               <ion-label>
-              <img src="{{post.featured_image_src}}" />  
+              <img src="{{post.thumbnail_image_src}}" />  
               <h4 class="tam-title" [innerHTML]="post.title.rendered"></h4>
               <p class="tam-author">{{post._embedded.author[0].name}}</p>
               </ion-label>
@@ -196,15 +259,16 @@
       </ion-slides>
     </div>
   </div>
-  <div class="div-row"  *ngIf="homeEnabled">
-    <h4>মনের কথা  </h4>
+  
+  <div class="div-row"  *ngIf="homeEnabled && part2">
+    <ion-label text-left>অনুপ্রেরণা </ion-label>
     <div class="div-slides">
       <ion-slides   pager="false" slidesPerView="2.6" >
-        <ion-slide *ngFor="let post of posts" (click)="openReadPage(post)">
+        <ion-slide *ngFor="let post of inspiration_posts" (click)="openReadPage(post)">
           
                        
               <ion-label>
-              <img src="{{post.featured_image_src}}" />  
+              <img src="{{post.thumbnail_image_src}}" />  
               <h4 class="tam-title" [innerHTML]="post.title.rendered"></h4>
               <p class="tam-author">{{post._embedded.author[0].name}}</p>
               </ion-label>
@@ -213,40 +277,13 @@
       </ion-slides>
     </div>
   </div>
-  <div class="div-row"  *ngIf="homeEnabled">
-    <h4>জনপ্রিয় লেখা</h4>
-    <div class="div-slides">
-      <ion-slides   pager="false" slidesPerView="2.6" >
-        <ion-slide *ngFor="let post of popular_posts" (click)="openReadPage(post)">
-          
-                       
-              <ion-label>
-              <img src="{{post.featured_image_src}}" />  
-              <h4 class="tam-title" [innerHTML]="post.title.rendered"></h4>
-              <p class="tam-author">{{post._embedded.author[0].name}}</p>
-              </ion-label>
-          
-        </ion-slide>
-      </ion-slides>
-    </div>
-  </div>
-  <div class="div-row"  *ngIf="homeEnabled">
-    <h4>ঐতিহাসিক </h4>
-    <div class="div-slides">
-      <ion-slides   pager="false" slidesPerView="2.6" >
-        <ion-slide *ngFor="let post of popular_posts" (click)="openReadPage(post)">
-          
-                       
-              <ion-label>
-              <img src="{{post.featured_image_src}}" />  
-              <h4 class="tam-title" [innerHTML]="post.title.rendered"></h4>
-              <p class="tam-author">{{post._embedded.author[0].name}}</p>
-              </ion-label>
-          
-        </ion-slide>
-      </ion-slides>
-    </div>
-  </div>
+
+  <ion-infinite-scroll *ngIf="homeEnabled" (ionInfinite)="loadMore($event)">
+        <ion-infinite-scroll-content
+          loadingSpinner="bubbles"
+          loadingText="আরো পড়ুন..." *ngIf="pagingEnabled">
+        </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 
   <div class="div-lists"  *ngIf="!homeEnabled">
       <ion-list >
@@ -254,7 +291,7 @@
 
         <button ion-item *ngFor="let post of posts" (click)="openReadPage(post)">
             <ion-thumbnail item-start>
-              <img src="{{post.featured_image_src}}">
+              <img src="{{post.thumbnail_image_src}}">
             </ion-thumbnail>
             <ion-label text-wrap>
               <p class="post-title" [innerHTML]="post.title.rendered"></p>
@@ -278,7 +315,7 @@
       </ion-label>
 
   </div>  
-
+</div>
 </ion-content>
 
    

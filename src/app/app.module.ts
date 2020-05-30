@@ -3,9 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { HttpClientModule } from '@angular/common/http';
 import { MyApp } from './app.component';
-import { GooglePlus } from '@ionic-native/google-plus';
-import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
-import { Diagnostic } from '@ionic-native/diagnostic/ngx';
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
+import { StreamingMedia } from '@ionic-native/streaming-media/ngx';
+
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -18,18 +18,21 @@ import { MenuPage } from '../pages/menu/menu';
 import { SearchPage } from '../pages/search/search';
 import { LoginPage } from '../pages/login/login';
 import { ProfilePage } from '../pages/profile/profile';
+import { MembershipPage } from '../pages/membership/membership';
+import { AudioPlayerPage } from '../pages/audio-player/audio-player';
 
 import { CommonHeaderComponent } from '../components/common-header/common-header';
 import { CommonSideMenuComponent } from '../components/common-side-menu/common-side-menu';
 
-import { NativeStorage } from '@ionic-native/native-storage'
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { RemoteDataProvider } from '../providers/remote-data/remote-data';
 import { WordpressService } from '../services/wordpress.service';
 import { AuthenticationService } from '../services/authentication.service';
-import { SocialSharing } from '@ionic-native/social-sharing';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { BasicService } from '../services/basic.service';
+
 
 
 @NgModule({
@@ -45,15 +48,18 @@ import { BasicService } from '../services/basic.service';
     SearchPage,
     LoginPage,
     ProfilePage,
+    MembershipPage,
+    AudioPlayerPage,
     TabsPage,
     CommonHeaderComponent,
     CommonSideMenuComponent
+    
   ],
   imports: [
     BrowserModule,    
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
-  ],
+    IonicModule.forRoot(MyApp),
+    ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
@@ -67,6 +73,8 @@ import { BasicService } from '../services/basic.service';
     SearchPage,
     LoginPage,
     ProfilePage,
+    MembershipPage,
+    AudioPlayerPage,
     TabsPage,
     CommonHeaderComponent,
     CommonSideMenuComponent
@@ -74,8 +82,6 @@ import { BasicService } from '../services/basic.service';
   providers: [
     GooglePlus,    
     NativeStorage,
-    Diagnostic,
-    AndroidPermissions,
     StatusBar,
     SplashScreen,
     WordpressService,
@@ -83,7 +89,8 @@ import { BasicService } from '../services/basic.service';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     RemoteDataProvider,
     SocialSharing,
-    BasicService
+    BasicService,
+    StreamingMedia
   ]
 })
 export class AppModule {}

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SocialSharing } from '@ionic-native/social-sharing';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { WordpressService } from '../../services/wordpress.service';
 import { AuthenticationService } from '../../services/authentication.service';
@@ -23,11 +23,14 @@ export class ReadPage {
 
   post : any;
   author : any;
-  user: string;
+  user: any;
+  likes: any;
   data: any = [];
   comments: any = [];
   categories : any = [];
   morePagesAvailable: boolean = true;
+  isLiked = 0;
+  noOfLikes = 0;
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
@@ -47,12 +50,47 @@ export class ReadPage {
     Observable.forkJoin(
       this.getAuthorData(),
       this.getCategories(),
-      this.getComments())
+      this.getComments(),
+      this.getLoggedinUserData(),
+      this.getLikes())
       .subscribe(data => {
+        
         this.data = data;
-        this.user = this.data[0].name;
+        this.author = this.data[0];
         this.categories = this.data[1];
         this.comments = this.data[2];
+        this.user = this.data[3];
+        this.likes = this.data[4];
+        console.log(JSON.stringify(this.data));
+        //console.log("Like "+this.likes[0].is_liked);
+        for(let like of this.likes)
+        {
+          console.log("value ->",like.user_email);
+          if(like.is_liked=='1' && like.user_email==this.user.email)
+          {
+            this.isLiked = 1;
+            console.log("Like 1");
+          }
+          if(like.is_liked=='1')
+          {
+            this.noOfLikes = this.noOfLikes + 1;
+            console.log("No of Likes"+this.noOfLikes);
+          }
+        }
+        /*foreach(this.likes as like)
+        {
+          if(like.is_liked=='1' && like.user_email==this.user[0].email)
+          {
+            this.isLiked = 1;
+            console.log("Like 1");
+          }
+          if(like.is_liked=='1')
+          {
+            this.noOfLikes = this.noOfLikes + 1;
+            console.log("No of Likes"+this.noOfLikes);
+          }
+        }*/
+        
         loading.dismiss();
       });
   	//this.author =  "";
@@ -77,6 +115,29 @@ export class ReadPage {
   getComments(){
     return this.wordpressService.getComments(this.post.id);
   }
+  getLoggedinUserData(){
+    return this.authenticationService.getUser();
+  }
+  getLikes(){
+    return this.wordpressService.getLikes(this.post.id);
+  }
+
+  likePost(){
+    if(this.isLiked==1)
+    {
+      this.isLiked=0;
+      this.noOfLikes=this.noOfLikes-1;
+    }
+    else
+    {
+      this.isLiked=1;
+      this.noOfLikes=this.noOfLikes+1;
+    }
+    console.log(this.user.email);
+    this.wordpressService.likePost(this.post.id, this.user.email).subscribe(data => {
+        console.log(JSON.stringify(data));        
+      });
+  }
 
   loadMoreComments(infiniteScroll) {
     let page = (this.comments.length/10) + 1;
@@ -94,12 +155,8 @@ export class ReadPage {
   }
 
   createComment(){
-    let user: any;
 
-    this.authenticationService.getUser()
-    .then(res => {
-      console.log('Return from authentication with sucess');
-      user = res;
+      console.log('Create comment');
 
       let alert = this.alertCtrl.create({
       title: 'Add a comment',
@@ -122,7 +179,7 @@ export class ReadPage {
           handler: data => {
             let loading = this.loadingCtrl.create();
             loading.present();
-            this.wordpressService.createComment(this.post.id, user, data.comment)
+            this.wordpressService.createComment(this.post.id, this.user, data.comment)
             .subscribe(
               (data) => {
                 console.log("ok", data);
@@ -144,31 +201,7 @@ export class ReadPage {
         }
       ]
     });
-    alert.present();
-    },
-    err => {
-      console.log('Return from authentication with error');
-      let alert = this.alertCtrl.create({
-        title: 'Please login',
-        message: 'You need to login in order to comment',
-        buttons: [
-          {
-            text: 'Cancel',
-            role: 'cancel',
-            handler: () => {
-              console.log('Cancel clicked');
-            }
-          },
-          {
-            text: 'Login',
-            handler: () => {
-              this.navCtrl.push(LoginPage);
-            }
-          }
-        ]
-      });
-    alert.present();
-    });
+    alert.present();    
   }
 
 }

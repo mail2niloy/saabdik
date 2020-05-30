@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-an
 import { AuthenticationService } from '../../services/authentication.service';
 import { BasicService } from '../../services/basic.service';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { GooglePlus } from '@ionic-native/google-plus';
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { HomePage } from '../home/home';
 /**
  * Generated class for the LoginPage page.
@@ -47,9 +47,9 @@ export class LoginPage {
         //this.logout();
       });
      this.register_form = this.formBuilder.group({
-      username: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
-      displayName: new FormControl('', Validators.required),
+      name: new FormControl('', Validators.required),
+      billing_phone: new FormControl('', Validators.required),
       email: new FormControl('', Validators.required),
     });
   }
@@ -62,18 +62,20 @@ export class LoginPage {
     	console.log(res);
 	    this.userInfo=res;
       this.presentLoadingDefault();
-      this.authenticationService.findUser(this.userInfo.email).subscribe(res=>{
+      this.authenticationService.findUser(this.userInfo.email).subscribe(res=>{                          
+                                  console.log(res);
                                   this.data = res;
-                                  console.log(this.data);
                                   if (this.data.length > 0) {
-                                    console.log('user is registered');
+                                    //console.log('user is registered'+this.data[0]['email']);
                                     this.authenticationService.setUser({
-                                     displayname: this.userInfo.displayName,
+                                     name: this.data[0].name,
                                      email: this.userInfo.email,
-                                     imageUrl: this.userInfo.imageUrl
+                                     billing_phone: this.data[0].billing_phone,
+                                     basic_user_avatar: this.data[0].basic_user_avatar
                                    });
                                     this.isUserLoggedIn=true;
                                     this.userRegistration = false;
+                                    this.navCtrl.setRoot(HomePage);
                                   }
                                   else
                                   {
@@ -87,7 +89,7 @@ export class LoginPage {
                                      email: this.userInfo.email,
                                      imageUrl: this.userInfo.imageUrl
                                    });*/
-                                   this.navCtrl.setRoot(HomePage);
+                                   
 
                                 });
       
@@ -109,13 +111,16 @@ export class LoginPage {
       .subscribe(
       res => {
         this.res = res;
-        console.log('Admin Authentication result');
+        console.log('Admin Authentication result '+values.billing_phone);
         console.log(res);
         let user_data = {
-          username: values.username,
-          name: values.displayName,
+          username: values.email,
+          name: values.name,
           email: values.email,
-          password: values.password
+          password: values.password,
+          meta: {
+            billing_phone: values.billing_phone
+          }
         };
         this.authenticationService.doRegister(user_data, this.res.token)
         .subscribe(

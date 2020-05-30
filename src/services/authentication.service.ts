@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { NativeStorage } from '@ionic-native/native-storage'
+import { NativeStorage } from '@ionic-native/native-storage/ngx'
 import { HttpClient , HttpHeaders }  from '@angular/common/http';
 import * as Config from '../config';
 
