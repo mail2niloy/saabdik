@@ -8,8 +8,18 @@ import 'rxjs/add/observable/forkJoin';
 @Injectable()
 export class WordpressService {
   dateTime : any;
+  url : any;
   constructor(public http: HttpClient){
     
+  }
+
+  getPostDetails(post_id:any)
+  {
+    this.dateTime = new Date().getTime();
+    this.url = Config.WORDPRESS_REST_API_URL+'posts/'+post_id+'/?date='+this.dateTime;
+    console.log(this.url);
+    return this.http.get(this.url).map(res => res )
+                                  .catch(error => error);
   }
 
   getRecentPosts(categoryId:number, page:number = 1){
@@ -25,7 +35,7 @@ export class WordpressService {
   }
 
   getComments(postId:number, page:number = 1){
-    this.dateTime = new Date();
+    this.dateTime = new Date().getTime();
     //console.log(postId+'---'+page+'----'+this.dateTime);
     console.log(
       Config.WORDPRESS_REST_API_URL
@@ -44,10 +54,24 @@ export class WordpressService {
   }
 
   getLikes(post_id){
-    this.dateTime = new Date();
+    this.dateTime = new Date().getTime();
     console.log(Config.WORDPRESS_CUSTOM_LIKE_REST_API_URL + "get_post_likes/?post_id=" + post_id);
     return this.http.get(Config.WORDPRESS_CUSTOM_LIKE_REST_API_URL + "get_post_likes/?dateTime="+this.dateTime+"&post_id=" + post_id)
     .map(res => res);
+  }
+  getLibraryInfo(post_id){
+    this.dateTime = new Date().getTime();
+    console.log(Config.WORDPRESS_CUSTOM_LIBRARY_REST_API_URL + "get_library_info/?post_id=" + post_id);
+    return this.http.get(Config.WORDPRESS_CUSTOM_LIBRARY_REST_API_URL + "get_library_info/?post_id=" + post_id+"&dateTime="+this.dateTime)
+    .map(res => res);
+  }
+  addToLibrary(user_email, post_id){
+    this.dateTime = new Date().getTime();
+    console.log(Config.WORDPRESS_CUSTOM_LIBRARY_REST_API_URL + "add_to_library/?user_email=" + user_email+"&post_id=" + post_id);
+    return this.http.post(Config.WORDPRESS_CUSTOM_LIBRARY_REST_API_URL + "add_to_library", {
+      user_email: user_email,
+      post_id: post_id
+    }).map(res => res);
   }
 
   likePost(post_id, user_email){
@@ -59,10 +83,10 @@ export class WordpressService {
     }).map(res => res);
   }
 
-  getPostCategories(post){
+  getPostCategories(post_categories){
     let observableBatch = [];
-
-    post.categories.forEach(category => {
+    console.log(JSON.stringify(post_categories));
+    post_categories.forEach(category => {
       observableBatch.push(this.getCategory(category));
     });
 

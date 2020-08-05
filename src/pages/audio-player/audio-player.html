@@ -5,18 +5,59 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>Ionic Audio for Angular/Ionic 2</h2>
-  <p>
-    This sample project shows you how simple it is to work with the ionic-audio module.
-  </p>
+  <audio-track #audio   [track]="selectedTrack" (onFinish)="onTrackFinished($event)">
+    <img [src]="audio.art">
+    <ion-card-content>
 
+      <ion-card-title>{{audio.title}}</ion-card-title>
+      <div item-content style="width:100%">
+        <p><strong>{{audio.title}}</strong> ⚬ <em>{{audio.artist}}</em></p>
+        <audio-track-progress-bar dark duration progress [audioTrack]="audio" [ngStyle]="{visibility: audio.completed > 0 ? 'visible' : 'hidden'}"></audio-track-progress-bar>
+      </div>
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-only>
+            <ion-icon name="square" (click)="stopMusic()"></ion-icon>
+          </button>
+        </ion-col>
+
+        <ion-col>
+          <audio-track-play dark [audioTrack]="audio"><ion-spinner></ion-spinner></audio-track-play>
+        </ion-col>
+
+        <ion-col>
+          <button ion-button icon-only>
+            <ion-icon name="pause" (click)="pauseSelectedTrack()"></ion-icon>
+          </button>
+        </ion-col>
+
+      </ion-row>
+    </ion-card-content>
+  </audio-track>
+  <ion-card>
     
-  
-
-  <h3>API Usage</h3>
-  <h4>Using AudioProvider to control playback</h4>
-  <button ion-button block outline (click)="playStreamAudio()">Play Stream</button>
-  
-  <button ion-button block outline (click)="playSelectedTrack()">Play</button>
+    
+  </ion-card>
+  <button ion-button block outline (click)="playStreamAudio()">Play Stream</button>  
   <button ion-button block outline color="secondary" (click)="pauseSelectedTrack()">Pause</button>
+  <button ion-button block outline (click)="playAudio()">Play</button>
+  <button ion-button block outline (click)="stopAudio()">Stop</button>
+
+  <ion-list>
+  <audio-track #audio *ngFor="let track of myTracks"  [track]="track" (onFinish)="onTrackFinished($event)">
+    <ion-item>
+      <ion-thumbnail item-left>
+        <img src="{{audio.art}}">
+        <audio-track-play dark [audioTrack]="audio"><ion-spinner></ion-spinner></audio-track-play>
+      </ion-thumbnail>
+      <div item-content style="width:100%">
+        <p><strong>{{audio.title}}</strong> ⚬ <em>{{audio.artist}}</em></p>
+        <audio-track-progress-bar dark duration progress [audioTrack]="audio" [ngStyle]="{visibility: audio.completed > 0 ? 'visible' : 'hidden'}"></audio-track-progress-bar>
+      </div>
+    </ion-item>
+  </audio-track>
+</ion-list>
+
+
+
 </ion-content>

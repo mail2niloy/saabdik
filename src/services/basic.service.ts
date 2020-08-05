@@ -14,7 +14,7 @@ export class BasicService {
 
   constructor(public http: HttpClient, 
     public authenticationService: AuthenticationService,
-    private gp: GooglePlus) {
+    public gp: GooglePlus) {
     console.log('Hello BasicService Provider');
   }
 

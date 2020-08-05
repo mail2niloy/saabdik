@@ -29,11 +29,19 @@ export class CommonSideMenuComponent {
     console.log('Hello CommonSideMenuComponent Component');
     this.text = 'Hello World';
     this.authenticationService.getUser().then(res => {
-      this.isUserLoggedIn = true;
-      this.userInfo=res;
-      console.log("user found");},
+      
+        if (res == null) {
+          this.isUserLoggedIn = false;
+          console.log("side bar res - user not found");
+        }
+        else{
+          this.isUserLoggedIn = true;
+          this.userInfo=res;
+          console.log("side bar user found");
+        }
+      },
       err=>{
-        console.log("user not found");
+        console.log("side bar - user not found");
         this.isUserLoggedIn = false;
         //this.logout();
       });

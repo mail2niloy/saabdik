@@ -6,12 +6,15 @@ page-read {
         	text-align:justify;
             line-height: 1.7em;
             margin-bottom: 1.2em ;
+            color: #fff;
+            opacity: .60;
 		  }
 		  div{
 		    font-size: 1.2em;
         	text-align:justify;
             line-height: 1.7em;
             margin-bottom: 1.2em ;
+            
 		  }
         
     }
@@ -20,18 +23,34 @@ page-read {
   .card-title {   
     font-size: 2.0em;
     width: 100%;
-    font-weight: bold;
-    color: #FB6542;
+    color: #c29545;
     text-align:center;
+  }
+    q, blockquote {
+
+        quotes: "“" "”"; /* one pair */
+
+        /* OR */
+
+        quotes: "“" "”" "‘" "’"; /* two pairs */
+    }
+  .text-quot {   
+    font-size: 1.0em;
+    width: 100%;
+    color: #ffc04d;
   }
 
   .card-subtitle {
     font-size: 1em;
     font-weight: bold;
     width: 100%;
-    color: #375E97;
-    margin-bottom:1em;
-    text-align:center;
+    color: #fff;
+    opacity:70%;
   }
+
+    .card
+    {
+         margin-bottom: 5px !important;
+    }
 
 }

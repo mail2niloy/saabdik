@@ -5,6 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MyApp } from './app.component';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { StreamingMedia } from '@ionic-native/streaming-media/ngx';
+import { Media, MediaObject } from '@ionic-native/media/ngx';
+import { IonicStorageModule } from '@ionic/storage';
 
 
 import { AboutPage } from '../pages/about/about';
@@ -33,6 +35,17 @@ import { AuthenticationService } from '../services/authentication.service';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { BasicService } from '../services/basic.service';
 
+import { IonicAudioModule, WebAudioProvider, CordovaMediaProvider, defaultAudioProviderFactory } from 'ionic-audio3';
+
+/**
+ * Sample custom factory function to use with ionic-audio3
+ */
+export function myCustomAudioProviderFactory() {
+  return (window.hasOwnProperty('cordova')) ? new CordovaMediaProvider() : new WebAudioProvider();
+}
+
+
+
 
 
 @NgModule({
@@ -59,6 +72,8 @@ import { BasicService } from '../services/basic.service';
     BrowserModule,    
     HttpClientModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
+    IonicAudioModule.forRoot(defaultAudioProviderFactory)
     ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -90,7 +105,8 @@ import { BasicService } from '../services/basic.service';
     RemoteDataProvider,
     SocialSharing,
     BasicService,
-    StreamingMedia
+    StreamingMedia,
+    Media
   ]
 })
 export class AppModule {}

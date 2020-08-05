@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { NativeStorage } from '@ionic-native/native-storage/ngx'
+import { Storage } from '@ionic/storage';
 import { HttpClient , HttpHeaders }  from '@angular/common/http';
 import * as Config from '../config';
 
@@ -9,20 +9,20 @@ export class AuthenticationService {
   dateTime: any;
 
   constructor(
-    public nativeStorage: NativeStorage,
+    private storage: Storage,
     public http: HttpClient 
   ){}
 
   getUser(){
-    return this.nativeStorage.getItem('User');
+    return this.storage.get('User');
   }
 
   setUser(user){
-    return this.nativeStorage.setItem('User', user);
+    return this.storage.set('User', user);
   }
 
   logOut(){
-    return this.nativeStorage.clear();
+    return this.storage.remove('User');
   }
 
   doLogin(username, password){

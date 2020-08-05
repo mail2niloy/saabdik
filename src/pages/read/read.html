@@ -11,31 +11,100 @@
 </ion-header>
 
 <ion-content >
-	<ion-card>
-	  <img src="{{post.featured_image_src}}"/>
-	  <ion-card-content>
-	    <ion-card-title class="card-title" [innerHTML]="post.title.rendered">
-	      
-	      </ion-card-title>
-	       <h2 class="card-subtitle"> <ion-icon name="create"></ion-icon> {{post._embedded.author[0].name}}</h2>
-	    <p class="lg-text" [innerHTML]="post.content.rendered">
-	    </p>     
-         
-        <button ion-button icon-only *ngIf="isLiked" (click)="likePost()">
-          <ion-icon color="danger" name="heart"></ion-icon>
-        </button>
-        <button ion-button icon-only *ngIf="!isLiked" (click)="likePost()">
-          <ion-icon name="heart-outline"></ion-icon>
-        </button>
-        {{noOfLikes}} Likes
-      
-	    <button ion-button block color="secondary" (click)="sharePost(post)">শেয়ার করুন</button>
-	  </ion-card-content>
+  <ion-card>
 
-	</ion-card>
+  <ion-item>
+    <ion-avatar item-start>
+      <img src="{{author.author_thumbnail}}">
+    </ion-avatar>
+    <h2 class="card-subtitle">{{author.name}} <ion-icon name="create"></ion-icon></h2><!-- 
+    <p>November 5, 1955</p> -->
+  </ion-item>
+ 
+  <iframe *ngIf="videoEnabled" [src]="videoURL" width="100%" height="300" scrolling="no" frameborder="no"  allow="autoplay; fullscreen" allowfullscreen></iframe>
+  
+
+  <img *ngIf="!videoEnabled" src="{{post.featured_image_src}}">
+  <ion-card-title class="card-title"   [innerHTML]="post.title_rendered"></ion-card-title>
+
+  <ion-row>
+    <ion-col >
+      <!-- <button ion-button icon-start clear small>
+        <ion-icon name="thumbs-up"></ion-icon>
+        <div>12 Likes</div>
+      </button> -->
+      <button color="light" ion-button icon-start clear small *ngIf="isLiked" (click)="likePost()">
+          <ion-icon color="danger"  name="heart"></ion-icon><div>{{noOfLikes}} লাইক </div>
+        </button>
+        <button color="light" ion-button icon-start clear small *ngIf="!isLiked" (click)="likePost()">
+          <ion-icon color="danger" name="heart-outline"></ion-icon><div>{{noOfLikes}} লাইক </div>
+        </button>
+    </ion-col>
+    <ion-col>
+      <button color="light" ion-button icon-start clear small (click)="sharePost(post)">
+        <ion-icon color="bright-blue" name="share"></ion-icon><div>শেয়ার করুন</div>
+      </button>
+    </ion-col>
+    <ion-col align-self-center text-center>
+      <button color="light" ion-button icon-start clear small *ngIf="isInLibrary" (click)="addToLibrary()">
+          <ion-icon color="secondary" name="ios-add-circle"></ion-icon>লাইব্রেরী
+        </button>
+        <button color="light" ion-button icon-start clear small *ngIf="!isInLibrary" (click)="addToLibrary()">
+          <ion-icon color="secondary" name="ios-add-circle-outline"></ion-icon>লাইব্রেরী
+        </button>
+    </ion-col>
+  </ion-row>
+
+  <ion-card-content>
+    <audio-track #audio   [track]="selectedTrack" (onFinish)="onTrackFinished($event)" *ngIf="audioEnabled">
+    <h2 class="card-subtitle">
+    <ion-icon color="danger" name="headset"></ion-icon> অডিও শুনুন
+    </h2>
+    <audio-track-play dark [audioTrack]="audio"><ion-spinner></ion-spinner></audio-track-play>
+    <audio-track-progress-bar dark duration progress [audioTrack]="audio" [ngStyle]="{visibility: audio.completed > 0 ? 'visible' : 'hidden'}"></audio-track-progress-bar>
+    </audio-track>
+
+    <p class="lg-text" [innerHTML]="post.content_rendered">
+      </p>
+    
+  </ion-card-content>
+
+  <ion-row>
+    <ion-col>
+      <!-- <button ion-button icon-start clear small>
+        <ion-icon name="thumbs-up"></ion-icon>
+        <div>12 Likes</div>
+      </button> -->
+      <button color="light" ion-button icon-start clear small *ngIf="isLiked" (click)="likePost()">
+          <ion-icon color="danger"  name="heart"></ion-icon><div>{{noOfLikes}} লাইক </div>
+        </button>
+        <button color="light" ion-button icon-start clear small *ngIf="!isLiked" (click)="likePost()">
+          <ion-icon name="heart-outline"></ion-icon><div>{{noOfLikes}} লাইক </div>
+        </button>
+    </ion-col>
+    <ion-col>
+      <button color="light" ion-button icon-start clear small (click)="sharePost(post)">
+        <ion-icon name="share"></ion-icon><div>শেয়ার করুন</div>
+      </button>
+    </ion-col>
+    <ion-col align-self-center text-center>
+      <button color="light" ion-button icon-start clear small *ngIf="isInLibrary" (click)="addToLibrary()">
+          <ion-icon color="secondary" name="ios-add-circle"></ion-icon>লাইব্রেরী
+        </button>
+        <button color="light" ion-button icon-start clear small *ngIf="!isInLibrary" (click)="addToLibrary()">
+          <ion-icon color="secondary" name="ios-add-circle-outline"></ion-icon>লাইব্রেরী
+        </button>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+  </ion-row>
+
+</ion-card>
+
+
   <ion-card>
     <ion-card-content>
-      <button ion-button block (click)="createComment()">আপনার মতামত দিন</button>   
+      <button ion-button block color="danger" (click)="createComment()">আপনার মতামত দিন</button>   
 	    <p class="bold-title">মতামত:</p>
       <ion-item *ngFor="let comment of comments">
         <ion-avatar item-start>

@@ -3,7 +3,7 @@
     <name>শাব্দিক</name>
     <description>Bengali E-Magazine</description>
     <author email="mail2niloy@gmail.com" href="http://saabdik.com/">Niloy Sarkar</author>
-    <content original-src="index.html" src="http://192.168.0.103:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="*" />
     <allow-intent href="http://*/*" />
@@ -112,7 +112,8 @@
     <allow-navigation href="http://localhost:8113" sessionid="caf96661" />
     <allow-navigation href="http://localhost:8109" sessionid="e1d499fd" />
     <allow-navigation href="http://localhost:8106" sessionid="4098a289" />
-    <allow-navigation href="http://192.168.0.104:8100" />
-    <allow-navigation href="http://192.168.0.104:8101" />
-    <allow-navigation href="http://192.168.0.103:8100" />
+    <plugin name="cordova-android-support-gradle-release" spec="^3.0.1">
+        <variable name="ANDROID_SUPPORT_VERSION" value="27.+" />
+    </plugin>
+    <plugin name="cordova-plugin-nativestorage" spec="^2.3.2" />
 </widget>

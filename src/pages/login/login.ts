@@ -38,11 +38,18 @@ export class LoginPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
     this.authenticationService.getUser().then(res => {
-      this.isUserLoggedIn = true;
-      this.userInfo=res;
-      console.log("user found");},
+        if (res == null) {
+          this.isUserLoggedIn = false;
+          console.log("login res - user not found");
+        }
+        else{
+          this.isUserLoggedIn = true;
+          this.userInfo=res;
+          console.log("login user found");
+        }
+      },
       err=>{
-        console.log("user not found");
+        console.log("login user not found");
         this.isUserLoggedIn = false;
         //this.logout();
       });

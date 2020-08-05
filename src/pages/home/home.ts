@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController  } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, Platform  } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
@@ -44,7 +44,7 @@ export class HomePage {
   url:any;
   loading:any;
   page=1;
-  per_page=7;
+  per_page=10;
   errorMessage:any;
   type:any;
   topTab:any;
@@ -53,7 +53,8 @@ export class HomePage {
   public homeEnabled: boolean;
   public part2: boolean = false;
   isUserLoggedIn : any;
-  userInfo: any;
+  userInfo: Observable<any>;
+  dataLoaded : boolean = false;
 
   sliderConfig = {
     spaceBetween : 10,
@@ -65,6 +66,7 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
+    public plt: Platform,
     public httpClient: HttpClient, 
     private loadingController: LoadingController,
     public authenticationService: AuthenticationService,
@@ -74,7 +76,13 @@ export class HomePage {
       this.topTab = "home";
       this.homeEnabled = true;
       this.latest_posts = null;
+      this.getUseSavedData();
       this.showHome();
+     /* this.plt.ready().then((readySource) => {
+      console.log('Platform ready from', readySource);
+      this.getUseSavedData();
+      // Platform now ready, execute any required native code
+    });*/
       
       
       
@@ -83,6 +91,11 @@ export class HomePage {
 
   ionViewDidEnter(){
     console.log("You are in Home");
+    
+  }
+
+  getUseSavedData(){
+
     this.authenticationService.getUser()
     .then(res => {
       console.log(res);
@@ -93,14 +106,55 @@ export class HomePage {
       this.isUserLoggedIn=false;
       console.log("user not loggedin");
       });
+
   }
   
 
    initializeItems() {
         this.items = ['Amsterdam','Bogota','Mumbai','San José','Salvador']; 
   }
-    
+
   showHome()
+  {
+    console.log("Show Home Called");
+    this.homeEnabled = true;
+    this.topTab = "home";
+    this.presentLoadingDefault();
+    Observable.forkJoin(
+      this.RemoteDataProvider.listUsers('author', 10, 1),
+      this.RemoteDataProvider.listFrontPagePosts(),
+      )
+      .subscribe(data => {
+        this.dataLoaded = true;        
+        this.data = data;
+         this.authors = this.data[0];
+        this.latest_posts = this.data[1]['latest'];
+        this.popular_posts = this.data[1]['popular'];
+        this.khalar_dunia_posts = this.data[1]['khalar-dunia'];
+        this.anno_rokom_review_posts = this.data[1]['anno-rokom-review'];
+        this.life_style_posts = this.data[1]['life-style'];
+        this.fitness_posts = this.data[1]['fitness'];
+        this.bhraman_posts = this.data[1]['bhraman'];
+        this.puran_katha_posts = this.data[1]['puran-katha'];
+        this.jibon_kahini_posts = this.data[1]['jibon-kahini'];
+        this.desh_bidesh_posts = this.data[1]['desh-bidesh'];
+        this.book_review_posts = this.data[1]['book-review'];
+        this.beginners_guide_posts = this.data[1]['beginners-guide'];
+        this.inspiration_posts = this.data[1]['inspiration'];
+        this.moner_katha_posts = this.data[1]['moner-katha'];
+        this.aalap_posts = this.data[1]['aalapi'];
+        this.fashion_posts = this.data[1]['fashion'];
+        this.photography_posts = this.data[1]['photography'];
+        this.heseler_katha_posts = this.data[1]['heseler-katha'];
+        //console.log(this.data);
+        //console.log(JSON.stringify(this.data));
+        this.loading.dismiss();
+        
+      });
+
+  }
+    
+  /*showHome1()
   {
     this.homeEnabled = true;
     this.topTab = "home";
@@ -134,7 +188,7 @@ export class HomePage {
         this.loading.dismiss();
       });
 
-  }
+  }*/
 
   loadMore(infiniteScroll)
   {    
@@ -175,6 +229,8 @@ export class HomePage {
     this.pagingEnabled = true;
     this.homeEnabled = false;
     this.presentLoadingDefault();
+    this.type = type;
+    this.page = 1;
     this.remoteData = this.RemoteDataProvider.listPosts(type, this.per_page, this.page);
     this.remoteData.subscribe(
           data => {
@@ -216,31 +272,16 @@ export class HomePage {
       this.remoteData = this.RemoteDataProvider.listPosts(this.type, this.per_page, this.page);
          this.remoteData.subscribe(
            res => {
-            //this.latest_posts = res;
+            //this.posts = res;
+            this.data = res;
 
-             this.data = res;
              /*this.perPage = this.data.per_page;
              this.totalData = this.data.total;
              this.totalPage = this.data.total_pages;
              */
               //console.log(this.data[0].id);
                for(let i=0; i<this.data.length; i++) {
-                  if(this.type=='popular')
-                  {
-                    this.popular_posts.push(this.data[i]);
-                  }
-                  else if(this.type=='bises-sonkhya')
-                  {
-                     this.bises_sonkhya_posts.push(this.data[i]);
-                  }
-                  else if(this.type=='puja-sonkhya')
-                  {
-                     this.puja_sonkhya_posts.push(this.data[i]);
-                  } 
-                  else
-                  {
-                    this.latest_posts.push(this.data[i]);
-                  }
+                this.posts.push(this.data[i]);                  
                  
                }
               

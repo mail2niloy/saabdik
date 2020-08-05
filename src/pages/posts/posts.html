@@ -17,13 +17,15 @@
 	<ion-list>
         
 
-        <button ion-item *ngFor="let post of posts" (click)="openReadPage(post)">
+       <button ion-item *ngFor="let post of posts" (click)="openReadPage(post)">
             <ion-thumbnail item-start>
-              <img src="{{post.featured_image_src}}">
+              <img src="{{post.thumbnail_image_src}}">
             </ion-thumbnail>
-            <ion-label>
-              <p class="post-title" [innerHTML]="post.title.rendered"></p>
-              <p class="post-subtitle">{{post._embedded.author[0].name}}</p>
+            <ion-label text-wrap>
+              <h4 class="post-title" [innerHTML]="post.post_title"></h4>
+              <p class="post-subtitle">{{post.author_display_name}}</p>
+              <p class="post-category">{{post.categories_names}}</p>
+              <!-- <p [innerHTML]="post.content | slice:0:200"> </p> -->
             </ion-label>
         </button>
 

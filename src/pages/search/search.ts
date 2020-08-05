@@ -24,6 +24,7 @@ export class SearchPage {
   public pagingEnabled: boolean = true;
   constructor(public navCtrl: NavController, public navParams: NavParams, private loadingController: LoadingController, public RemoteDataProvider: RemoteDataProvider) {
   	this.searchText = this.navParams.get('searchText');
+    this.posts = "";
   }
 
   ionViewDidLoad() {
