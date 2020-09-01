@@ -51,7 +51,7 @@
         <ion-slide  *ngFor="let post of latest_posts" (click)="openReadPage(post)">
           <ion-card class="product" >
             <div class="image" routerLink="/product-card" routerDirection="forward">
-              <img class="tam-image"src="{{post.thumbnail_image_src}}">
+              <img class="tam-image" src="{{post.thumbnail_image_src}}">
             </div>
               
                 <ion-label >
@@ -69,21 +69,21 @@
           <ion-slide>
             <ion-card class="product" >
               <div class="image" >
-                <img class="tam-image"src="../../assets/icon.png">
+                <img class="tam-image" src="../../assets/icon.png">
               </div> 
             </ion-card>            
           </ion-slide>
           <ion-slide>
             <ion-card class="product" >
               <div class="image" >
-                <img class="tam-image"src="../../assets/icon.png">
+                <img class="tam-image" src="../../assets/icon.png">
               </div> 
             </ion-card>            
           </ion-slide>
           <ion-slide>
             <ion-card class="product" >
               <div class="image" >
-                <img class="tam-image"src="../../assets/icon.png">
+                <img class="tam-image" src="../../assets/icon.png">
               </div> 
             </ion-card>            
           </ion-slide>
@@ -113,21 +113,21 @@
           <ion-slide>
             <ion-card class="product" >
               <div class="image" >
-                <img class="tam-image"src="../../assets/icon.png">
+                <img class="tam-image" src="../../assets/icon.png">
               </div> 
             </ion-card>            
           </ion-slide>
           <ion-slide>
             <ion-card class="product" >
               <div class="image" >
-                <img class="tam-image"src="../../assets/icon.png">
+                <img class="tam-image" src="../../assets/icon.png">
               </div> 
             </ion-card>            
           </ion-slide>
           <ion-slide>
             <ion-card class="product" >
               <div class="image" >
-                <img class="tam-image"src="../../assets/icon.png">
+                <img class="tam-image" src="../../assets/icon.png">
               </div> 
             </ion-card>            
           </ion-slide>
@@ -153,21 +153,21 @@
           <ion-slide>
             <ion-card class="product" >
               <div class="image" >
-                <img class="tam-image"src="../../assets/icon.png">
+                <img class="tam-image" src="../../assets/icon.png">
               </div> 
             </ion-card>            
           </ion-slide>
           <ion-slide>
             <ion-card class="product" >
               <div class="image" >
-                <img class="tam-image"src="../../assets/icon.png">
+                <img class="tam-image" src="../../assets/icon.png">
               </div> 
             </ion-card>            
           </ion-slide>
           <ion-slide>
             <ion-card class="product" >
               <div class="image" >
-                <img class="tam-image"src="../../assets/icon.png">
+                <img class="tam-image" src="../../assets/icon.png">
               </div> 
             </ion-card>            
           </ion-slide>
@@ -217,10 +217,10 @@
           
                        
           <ion-label>
-            <div *ngIf="author.photo['250'] != ''">
-              <img class="tam-image" src="{{author.photo['250']}}" />
+            <div *ngIf="author.photo['96']"  (click)="openAuthorPage(author)">
+              <img class="tam-image" src="{{author.photo['96']}}" />
             </div>
-            <div *ngIf="author.photo == ''">
+            <div *ngIf="!author.photo['96']"  (click)="openAuthorPage(author)">
               <img class="tam-image" src="../../assets/imgs/default-avatar.png" />  
             </div>
               <p class="tam-author" text-wrap  >{{author.name}}</p>
@@ -238,7 +238,7 @@
           
                        
               <ion-label>
-              <img class="tam-image"src="{{post.thumbnail_image_src}}" />  
+              <img class="tam-image" src="{{post.thumbnail_image_src}}" />  
               <h4 class="tam-title" text-wrap [innerHTML]="post.post_title"></h4>
               <!-- <p class="tam-author">{{post.author_display_name}}</p> -->
               </ion-label>
@@ -255,7 +255,7 @@
           
                        
               <ion-label>
-              <img class="tam-image"src="{{post.thumbnail_image_src}}" />  
+              <img class="tam-image" src="{{post.thumbnail_image_src}}" />  
               <h4 class="tam-title" text-wrap  [innerHTML]="post.post_title"></h4>
               <!-- <p class="tam-author">{{post.author_display_name}}</p> -->
               </ion-label>
@@ -272,7 +272,7 @@
           
                        
               <ion-label>
-              <img class="tam-image"src="{{post.thumbnail_image_src}}" />  
+              <img class="tam-image" src="{{post.thumbnail_image_src}}" />  
               <h4 class="tam-title" text-wrap  [innerHTML]="post.post_title"></h4>
               <!-- <p class="tam-author">{{post.author_display_name}}</p> -->
               </ion-label>
@@ -289,7 +289,7 @@
           
                        
               <ion-label>
-              <img class="tam-image"src="{{post.thumbnail_image_src}}" />  
+              <img class="tam-image" src="{{post.thumbnail_image_src}}" />  
               <h4 class="tam-title" text-wrap  [innerHTML]="post.post_title"></h4>
               <!-- <p class="tam-author">{{post.author_display_name}}</p> -->
               </ion-label>
@@ -306,7 +306,7 @@
           
                        
               <ion-label>
-              <img class="tam-image"src="{{post.thumbnail_image_src}}" />  
+              <img class="tam-image" src="{{post.thumbnail_image_src}}" />  
               <h4 class="tam-title" text-wrap  [innerHTML]="post.post_title"></h4>
               <!-- <p class="tam-author">{{post.author_display_name}}</p> -->
               </ion-label>
@@ -325,7 +325,7 @@
           
                        
               <ion-label>
-              <img class="tam-image"src="{{post.thumbnail_image_src}}" />  
+              <img class="tam-image" src="{{post.thumbnail_image_src}}" />  
               <h4 class="tam-title" text-wrap  [innerHTML]="post.post_title"></h4>
               <!-- <p class="tam-author">{{post.author_display_name}}</p> -->
               </ion-label>
@@ -343,7 +343,7 @@
           
                        
               <ion-label>
-              <img class="tam-image"src="{{post.thumbnail_image_src}}" />  
+              <img class="tam-image" src="{{post.thumbnail_image_src}}" />  
               <h4 class="tam-title" text-wrap  [innerHTML]="post.post_title"></h4>
               <!-- <p class="tam-author">{{post.author_display_name}}</p> -->
               </ion-label>
@@ -361,7 +361,7 @@
 
         <button ion-item *ngFor="let post of posts" (click)="openReadPage(post)">
             <ion-thumbnail item-start>
-              <img class="tam-image"src="{{post.thumbnail_image_src}}">
+              <img class="tam-image" src="{{post.thumbnail_image_src}}">
             </ion-thumbnail>
             <ion-label text-wrap>
               <h4 class="post-title" text-wrap  [innerHTML]="post.post_title"></h4>

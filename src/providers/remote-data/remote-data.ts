@@ -167,7 +167,8 @@ export class RemoteDataProvider {
   listCategories(per_page:any, page:any)
   {
     
-    this.url = Config.WORDPRESS_REST_API_URL+'categories?page='+page+'&per_page='+per_page+'&_embed';
+    this.dateTime = new Date().getTime();
+    this.url = Config.WORDPRESS_SAABDIK_REST_API_URL+'categories?date='+this.dateTime;
     console.log(this.url);
     return this.http.get(this.url).map(res => res )
                                   .catch(error => error);
@@ -177,6 +178,16 @@ export class RemoteDataProvider {
   {
   	//this.url = Config.WORDPRESS_REST_API_URL+'posts?page='+page+'&per_page='+per_page+'&filter[cat]='+cat_id+'&date='+this.dateTime+'&_embed';
   	this.url = Config.WORDPRESS_SAABDIK_REST_API_URL+'filtered_posts?paged='+page+'&posts_per_page='+per_page+'&category='+cat_id+'&date='+this.dateTime;
+    
+    console.log(this.url);
+    return this.http.get(this.url).map(res => res )
+                                  .catch(error => error);
+  }
+
+  listTagPosts(tag:any, per_page:any, page:any)
+  {
+    //this.url = Config.WORDPRESS_REST_API_URL+'posts?page='+page+'&per_page='+per_page+'&filter[cat]='+cat_id+'&date='+this.dateTime+'&_embed';
+    this.url = Config.WORDPRESS_SAABDIK_REST_API_URL+'filtered_posts?paged='+page+'&posts_per_page='+per_page+'&tag='+tag+'&date='+this.dateTime;
     
     console.log(this.url);
     return this.http.get(this.url).map(res => res )
@@ -198,12 +209,22 @@ export class RemoteDataProvider {
     console.log(type);
     if(type=='author')
     {
-      this.url = Config.WORDPRESS_SAABDIK_REST_API_URL+'authors';
+      this.url = Config.WORDPRESS_SAABDIK_REST_API_URL+'authors?'+'date='+this.dateTime;
     }
     else
     {
        this.url = Config.WORDPRESS_REST_API_URL+'users?page='+page+'&per_page='+per_page+'&date='+this.dateTime;
     }
+    console.log(this.url);
+    return this.http.get(this.url).map(res => res )
+                                  .catch(error => error);
+  }
+
+  listAuthorPosts(author_id:any, per_page:any, page:any)
+  {
+    //this.url = Config.WORDPRESS_REST_API_URL+'posts?page='+page+'&per_page='+per_page+'&filter[cat]='+cat_id+'&date='+this.dateTime+'&_embed';
+    this.url = Config.WORDPRESS_SAABDIK_REST_API_URL+'author_posts/?author_id='+author_id+'&paged='+page+'&posts_per_page='+per_page+'&date='+this.dateTime;
+    
     console.log(this.url);
     return this.http.get(this.url).map(res => res )
                                   .catch(error => error);

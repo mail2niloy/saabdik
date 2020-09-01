@@ -33,7 +33,7 @@ export class CategoryPage {
     console.log('ionViewDidLoad CategoryPage');
   }
   getCategoryPosts(category: any){
-  	this.navCtrl.push(PostsPage, {category:category})
+  	this.navCtrl.push(PostsPage, {type:'category', title:category.title, category:category});
   }
   presentLoadingDefault() {
      this.loading = this.loadingController.create({

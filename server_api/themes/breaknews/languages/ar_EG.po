@@ -1,0 +1,1641 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Breaknews\n"
+"POT-Creation-Date: 2017-04-14 17:29+0200\n"
+"PO-Revision-Date: 2017-04-14 17:41+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar_EG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.6\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: 404.php:9
+msgid ""
+"It looks like nothing was found at this location, Perhaps searching can help"
+msgstr "يبدو أنه لم يتم العثور على ما تريد ! جرب خاصية البحث"
+
+#: 404.php:29
+msgid "Most Used Categories"
+msgstr "الأقسام الأكثر تصفحاً"
+
+#: 404.php:45
+#, php-format
+msgid "Try looking in the monthly archives. %1$s"
+msgstr "حاول أن تبحث في الأرشيف الشهري. %1$s"
+
+#: archive.php:21
+#, php-format
+msgid "Daily Archives: %s"
+msgstr "الأرشيفات اليومية : %s"
+
+#: archive.php:24
+#, php-format
+msgid "Monthly Archives: %s"
+msgstr "الأرشيف الشهري  %s"
+
+#: archive.php:24
+msgctxt "monthly archives date format"
+msgid "F Y"
+msgstr "F Y"
+
+#: archive.php:27
+#, php-format
+msgid "Yearly Archives: %s"
+msgstr "الأرشيف الشهري : %s"
+
+#: archive.php:27
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr "Y"
+
+#: author.php:15
+msgid "Posts By : "
+msgstr "كتب بواسطة : "
+
+#: category.php:15
+#, php-format
+msgid "Category : %s"
+msgstr "القسم : %s"
+
+#: class-tgm-plugin-activation.php:334 functions.php:571
+msgid "Install Required Plugins"
+msgstr "تثبيت الإضافات المطلوبة"
+
+#: class-tgm-plugin-activation.php:335 functions.php:572
+msgid "Install Plugins"
+msgstr "تثبيت الاضافات"
+
+#: class-tgm-plugin-activation.php:337 functions.php:574
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr "تثبيت الإضافات:  %s"
+
+#: class-tgm-plugin-activation.php:339 functions.php:576
+#, php-format
+msgid "Updating Plugin: %s"
+msgstr "تحديث الإضافات: %s"
+
+#: class-tgm-plugin-activation.php:340 functions.php:577
+msgid "Something went wrong with the plugin API."
+msgstr "حدث خطأ ما أثناء تثبيت الإضافات."
+
+#: class-tgm-plugin-activation.php:343 functions.php:580
+#, php-format
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] "هذا القالب يتطلب الاضافة التالية:%1$s."
+msgstr[2] ""
+msgstr[3] "هذا القالب يتطلب الاضافات التالية:%1$s."
+msgstr[4] ""
+msgstr[5] ""
+
+#: class-tgm-plugin-activation.php:349 functions.php:586
+#, php-format
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] "هذا القالب يوصي بالاضافة التالية: %1$s."
+msgstr[2] ""
+msgstr[3] "هذا القالب يوصي بالاضافات التالية: %1$s."
+msgstr[4] ""
+msgstr[5] ""
+
+#: class-tgm-plugin-activation.php:355 functions.php:592
+#, php-format
+msgid ""
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgid_plural ""
+"The following plugins need to be updated to their latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+"الاضافة  التالية تحتاج إلى تحديث للإصدار الأخير لضمان أقصى قدر من التوافق مع "
+"هذا القالب :%1$s."
+msgstr[2] ""
+msgstr[3] ""
+"الاضافات  التالية تحتاج إلى تحديث للإصدار الأخير لضمان أقصى قدر من التوافق "
+"مع هذا القالب :%1$s."
+msgstr[4] ""
+msgstr[5] ""
+
+#: class-tgm-plugin-activation.php:361 functions.php:598
+#, php-format
+msgid "There is an update available for: %1$s."
+msgid_plural "There are updates available for the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] "يتوفر تحديث للإضافة التالية: %1$s."
+msgstr[2] ""
+msgstr[3] "يتوفر تحديث للإضافات التالية: %1$s."
+msgstr[4] ""
+msgstr[5] ""
+
+#: class-tgm-plugin-activation.php:367 functions.php:604
+#, php-format
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] "الإضافة التالية تحتاج إلى التنشيط : %1$s."
+msgstr[2] ""
+msgstr[3] "الإضافات التالية تحتاج إلى التنشيط : %1$s."
+msgstr[4] ""
+msgstr[5] ""
+
+#: class-tgm-plugin-activation.php:373 functions.php:610
+#, php-format
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] "الإضافة التالية الموصى بها غير نشطة : %1$s."
+msgstr[2] ""
+msgstr[3] "الإضافات التالية الموصى بها غير نشطة : %1$s."
+msgstr[4] ""
+msgstr[5] ""
+
+#: class-tgm-plugin-activation.php:378 functions.php:615
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] "تثبيت الإضافة"
+msgstr[1] "تثبيت الإضافة"
+msgstr[2] ""
+msgstr[3] "بدأ تثبيت الإضافات"
+msgstr[4] ""
+msgstr[5] ""
+
+#: class-tgm-plugin-activation.php:383 functions.php:620
+msgid "Begin updating plugin"
+msgid_plural "Begin updating plugins"
+msgstr[0] "تحديث الإضافة"
+msgstr[1] "تحديث الإضافة"
+msgstr[2] ""
+msgstr[3] "بدأ تحديث الإضافات"
+msgstr[4] ""
+msgstr[5] ""
+
+#: class-tgm-plugin-activation.php:388 functions.php:625
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] "تنشيط الإضافة"
+msgstr[1] "تنشيط الإضافة"
+msgstr[2] ""
+msgstr[3] "تنشيط الإضافات"
+msgstr[4] ""
+msgstr[5] ""
+
+#: class-tgm-plugin-activation.php:392 functions.php:629
+msgid "Return to Required Plugins Installer"
+msgstr "العودة إلى مثبت الإضافات"
+
+#: class-tgm-plugin-activation.php:393 class-tgm-plugin-activation.php:912
+#: class-tgm-plugin-activation.php:2618 class-tgm-plugin-activation.php:3665
+#: functions.php:630
+msgid "Return to the Dashboard"
+msgstr "الرجوع الى لوحة التحكم"
+
+#: class-tgm-plugin-activation.php:394 class-tgm-plugin-activation.php:3244
+#: functions.php:631
+msgid "Plugin activated successfully."
+msgstr "تم تفعيل الإضافة بنجاح."
+
+#: class-tgm-plugin-activation.php:395 class-tgm-plugin-activation.php:3037
+#: functions.php:632
+msgid "The following plugin was activated successfully:"
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] "الاضافة التالية تم تفعيلها بنجاح"
+msgstr[1] "الاضافة التالية تم تفعيلها بنجاح"
+msgstr[2] ""
+msgstr[3] "الاضافات التالية تم تفعيلها بنجاح"
+msgstr[4] ""
+msgstr[5] ""
+
+#: class-tgm-plugin-activation.php:397 functions.php:634
+#, php-format
+msgid "No action taken. Plugin %1$s was already active."
+msgstr "لم يتم اتخاذ اي اجراء الاضافة %1$s  مفعله بالفعل ."
+
+#: class-tgm-plugin-activation.php:399 functions.php:636
+#, php-format
+msgid ""
+"Plugin not activated. A higher version of %s is needed for this theme. "
+"Please update the plugin."
+msgstr ""
+"لم يتم تنشيط الاضافة. وهناك حاجة إلى إصدار أعلى من %s لهذا القالب. يرجى "
+"تحديث الاضافة."
+
+#: class-tgm-plugin-activation.php:401 functions.php:638
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr "جميع الإضافات تم تنشيطها بنجاح. %s"
+
+#: class-tgm-plugin-activation.php:402 functions.php:639
+msgid "Dismiss this notice"
+msgstr "غلق هذا الإشعار"
+
+#: class-tgm-plugin-activation.php:403 functions.php:640
+msgid ""
+"There are one or more required or recommended plugins to install, update or "
+"activate."
+msgstr ""
+"هنالك اضافة او أكثر مطلوبة أو موصى بها تحتاج الى تثبيتها او تحديثها او "
+"تفعليها ."
+
+#: class-tgm-plugin-activation.php:404 functions.php:641
+msgid "Please contact the administrator of this site for help."
+msgstr "الرجاء الاتصال بمسؤول هذا الموقع للحصول على المساعدة"
+
+#: class-tgm-plugin-activation.php:607
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr "هذه الإضافة بحاجة إلى تحديث لتتوافق مع قالبك."
+
+#: class-tgm-plugin-activation.php:608
+msgid "Update Required"
+msgstr "التحديث مطلوب"
+
+#: class-tgm-plugin-activation.php:1019
+msgid ""
+"The remote plugin package does not contain a folder with the desired slug "
+"and renaming did not work."
+msgstr ""
+"حزمة الإضافة لا تحتوي على ملف بالاسم المطلوب وإعادة تسمية الملف لا تعمل."
+
+#: class-tgm-plugin-activation.php:1019 class-tgm-plugin-activation.php:1022
+msgid ""
+"Please contact the plugin provider and ask them to package their plugin "
+"according to the WordPress guidelines."
+msgstr "يرجى الاتصال بمزود الإضافة وطلب حزمة الإضافة وفقا لمبادئ للووردبريس."
+
+#: class-tgm-plugin-activation.php:1022
+msgid ""
+"The remote plugin package consists of more than one file, but the files are "
+"not packaged in a folder."
+msgstr ""
+"حزمة الاضافة البعيدة تتكون من أكثر من ملف واحد، و لم يتم حزم الملفات في مجلد "
+"واحد."
+
+#: class-tgm-plugin-activation.php:1206 class-tgm-plugin-activation.php:3033
+msgctxt "plugin A *and* plugin B"
+msgid "and"
+msgstr "و"
+
+#: class-tgm-plugin-activation.php:2067
+#, php-format
+msgid "TGMPA v%s"
+msgstr "TGMPA v%s"
+
+#: class-tgm-plugin-activation.php:2358
+msgid "Required"
+msgstr "مطلوب"
+
+#: class-tgm-plugin-activation.php:2361
+msgid "Recommended"
+msgstr "موصى به"
+
+#: class-tgm-plugin-activation.php:2377
+msgid "WordPress Repository"
+msgstr "مستودع الووردبرس"
+
+#: class-tgm-plugin-activation.php:2380
+msgid "External Source"
+msgstr "مصدر خارجي"
+
+#: class-tgm-plugin-activation.php:2383
+msgid "Pre-Packaged"
+msgstr "تم حزمها"
+
+#: class-tgm-plugin-activation.php:2400
+msgid "Not Installed"
+msgstr "غير مثبت"
+
+#: class-tgm-plugin-activation.php:2404
+msgid "Installed But Not Activated"
+msgstr "مثبت و لكن غير نشط"
+
+#: class-tgm-plugin-activation.php:2406
+msgid "Active"
+msgstr "نشط"
+
+#: class-tgm-plugin-activation.php:2412
+msgid "Required Update not Available"
+msgstr "التحديث المطلوب غير متاح"
+
+#: class-tgm-plugin-activation.php:2415
+msgid "Requires Update"
+msgstr "يتطلب تحديث"
+
+#: class-tgm-plugin-activation.php:2418
+msgid "Update recommended"
+msgstr "التحديث موصى به"
+
+#: class-tgm-plugin-activation.php:2427
+#, php-format
+msgctxt "Install/Update Status"
+msgid "%1$s, %2$s"
+msgstr ">تحديث/تنصيب<%1$s %2$s"
+
+#: class-tgm-plugin-activation.php:2473
+#, php-format
+msgctxt "plugins"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: class-tgm-plugin-activation.php:2477
+#, php-format
+msgid "To Install <span class=\"count\">(%s)</span>"
+msgid_plural "To Install <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: class-tgm-plugin-activation.php:2481
+#, php-format
+msgid "Update Available <span class=\"count\">(%s)</span>"
+msgid_plural "Update Available <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: class-tgm-plugin-activation.php:2485
+#, php-format
+msgid "To Activate <span class=\"count\">(%s)</span>"
+msgid_plural "To Activate <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: class-tgm-plugin-activation.php:2567
+msgctxt "as in: \"version nr unknown\""
+msgid "unknown"
+msgstr "غير معروف"
+
+#: class-tgm-plugin-activation.php:2575
+msgid "Installed version:"
+msgstr "الإصدار المثبت:"
+
+#: class-tgm-plugin-activation.php:2583
+msgid "Minimum required version:"
+msgstr "الحد الأدنى المطلوب للإصدار:"
+
+#: class-tgm-plugin-activation.php:2595
+msgid "Available version:"
+msgstr "الإصدار المتاح:"
+
+#: class-tgm-plugin-activation.php:2618
+msgid "No plugins to install, update or activate."
+msgstr "لا يوحد اضافات لتثبيتها او تحديثها او تفعيلها"
+
+#: class-tgm-plugin-activation.php:2632
+msgid "Plugin"
+msgstr "الاضافة"
+
+#: class-tgm-plugin-activation.php:2633
+msgid "Source"
+msgstr "المصدر"
+
+#: class-tgm-plugin-activation.php:2634
+msgid "Type"
+msgstr "النوع"
+
+#: class-tgm-plugin-activation.php:2638
+msgid "Version"
+msgstr "الإصدار"
+
+#: class-tgm-plugin-activation.php:2639
+msgid "Status"
+msgstr "الحالة"
+
+#: class-tgm-plugin-activation.php:2688
+#, php-format
+msgid "Install %2$s"
+msgstr "تثبيت %2$s"
+
+#: class-tgm-plugin-activation.php:2693
+#, php-format
+msgid "Update %2$s"
+msgstr "تحديث  %2$s"
+
+#: class-tgm-plugin-activation.php:2699
+#, php-format
+msgid "Activate %2$s"
+msgstr "تنشيط %2$s"
+
+#: class-tgm-plugin-activation.php:2769
+msgid "Upgrade message from the plugin author:"
+msgstr "ترقية رسالة من صاحب الاضافة:"
+
+#: class-tgm-plugin-activation.php:2802
+msgid "Install"
+msgstr "تثبيت"
+
+#: class-tgm-plugin-activation.php:2808
+msgid "Update"
+msgstr "تحديث"
+
+#: class-tgm-plugin-activation.php:2811
+msgid "Activate"
+msgstr "تنشيط"
+
+#: class-tgm-plugin-activation.php:2842
+msgid "No plugins were selected to be installed. No action taken."
+msgstr "لم يتم تحديد أي إضافة ليتم تثبيتها. لم يتم اتخاذ أي إجراء."
+
+#: class-tgm-plugin-activation.php:2844
+msgid "No plugins were selected to be updated. No action taken."
+msgstr "لم يتم تحديد أي إضافة ليتم تحديثها. لم يتم اتخاذ أي إجراء."
+
+#: class-tgm-plugin-activation.php:2885
+msgid "No plugins are available to be installed at this time."
+msgstr "لا يوجد إضافات متوفره لتنصيبها حالياً"
+
+#: class-tgm-plugin-activation.php:2887
+msgid "No plugins are available to be updated at this time."
+msgstr "ليس هنالك اي اضافة متوفره لتحديثها حالياً"
+
+#: class-tgm-plugin-activation.php:2993
+msgid "No plugins were selected to be activated. No action taken."
+msgstr "ليس هنالك اي اضافة تم تحديدها لتفعيلها ولم يتم اتخاذ اي اجراء"
+
+#: class-tgm-plugin-activation.php:3019
+msgid "No plugins are available to be activated at this time."
+msgstr "ليس هنالك اي اضافة متوفره لتفعيلها حالياً"
+
+#: class-tgm-plugin-activation.php:3243
+msgid "Plugin activation failed."
+msgstr "فشل تنشيط  الإضافة"
+
+#: class-tgm-plugin-activation.php:3583
+#, php-format
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr "تحديث الإضافة %1$s (%2$d/%3$d)"
+
+#: class-tgm-plugin-activation.php:3586
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr "حدث خطأ اثناء تثبيت %1$s: <strong>%2$s</strong>."
+
+#: class-tgm-plugin-activation.php:3588
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr "فشل تثبيت %1$s"
+
+#: class-tgm-plugin-activation.php:3592
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr ""
+"عملية التثبيت والتنشيط بدأت. قد تستغرق هذه العملية بعض الوقت على بعض "
+"الاستضافات، يرجى الصبر قليلاً."
+
+#: class-tgm-plugin-activation.php:3594
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr "%1$s تم تثبيتها وتفعيله بنجاح"
+
+#: class-tgm-plugin-activation.php:3594 class-tgm-plugin-activation.php:3602
+msgid "Show Details"
+msgstr "إظهار التفاصيل"
+
+#: class-tgm-plugin-activation.php:3594 class-tgm-plugin-activation.php:3602
+msgid "Hide Details"
+msgstr "اخفاء التفاصيل"
+
+#: class-tgm-plugin-activation.php:3595
+msgid "All installations and activations have been completed."
+msgstr "تم الانتهاء بالكامل من التثبيت والتفعيل"
+
+#: class-tgm-plugin-activation.php:3597
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr "تنصيب وتفعيل الاضافة  %1$s (%2$d/%3$d)"
+
+#: class-tgm-plugin-activation.php:3600
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr ""
+"عملية التثبيت بدأت. قد تستغرق هذه العملية بعض الوقت على بعض السيرفرات  لذا "
+"يرجى الانتظار قليلاً."
+
+#: class-tgm-plugin-activation.php:3602
+#, php-format
+msgid "%1$s installed successfully."
+msgstr "%1$s تم تثبيته بنجاح"
+
+#: class-tgm-plugin-activation.php:3603
+msgid "All installations have been completed."
+msgstr "تم الانتهاء من التثبيت"
+
+#: class-tgm-plugin-activation.php:3605
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr "تنصيب الاضافة  %1$s (%2$d/%3$d)"
+
+#: comments.php:28
+msgid "Leave a Reply"
+msgstr "اترك تعليقاً"
+
+#: comments.php:29
+msgid "Cancel reply"
+msgstr "إلغاء الرد"
+
+#: comments.php:30
+msgid "Post Comment"
+msgstr "انشر التعليق"
+
+#: footer.php:37
+msgid "Contact Us"
+msgstr "اتصل بنا"
+
+#: functions.php:56
+msgid "Primary Menu"
+msgstr "القائمة الاساسية"
+
+#: functions.php:57
+msgid "Footer Menu"
+msgstr "القائمة السفلية"
+
+#: functions.php:93
+msgid "Main Sidebar"
+msgstr "الشريط الجانبي الرئيسى"
+
+#: functions.php:101
+msgid "Footer Area #1"
+msgstr "منطقة الفوتر #1"
+
+#: functions.php:109
+msgid "Footer Area #2"
+msgstr "منطقة الفوتر #2"
+
+#: functions.php:117
+msgid "Footer Area #3"
+msgstr "منطقة الفوتر #3"
+
+#: functions.php:125
+msgid "Instagram Footer"
+msgstr "منطقة الانستجرام"
+
+#: functions.php:445
+#, php-format
+msgid "%1$s at %2$s"
+msgstr "%1$s في %2$s"
+
+#: functions.php:447
+msgid "Comment awaiting approval"
+msgstr "تعليقك بانتظار الموافقة"
+
+#: functions.php:454
+msgid "Reply"
+msgstr "رد"
+
+#: functions.php:455
+msgid "Edit"
+msgstr "تعديل"
+
+#: functions.php:474 inc/theme-options.php:994
+#: inc/widgets/social_widget.php:52
+msgid "Facebook"
+msgstr "Facebook"
+
+#: functions.php:477 inc/theme-options.php:1002
+#: inc/widgets/social_widget.php:53
+msgid "Twitter"
+msgstr "Twitter"
+
+#: functions.php:480 inc/theme-options.php:1010
+#: inc/widgets/social_widget.php:54
+msgid "Google+"
+msgstr "Google+"
+
+#: functions.php:483
+msgid "Linked In"
+msgstr "Linked In"
+
+#: functions.php:486 inc/theme-options.php:1026
+#: inc/widgets/social_widget.php:56
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#: functions.php:489 inc/theme-options.php:1034
+#: inc/widgets/social_widget.php:57
+msgid "Instagram"
+msgstr "Instagram"
+
+#: functions.php:492 inc/theme-options.php:1042
+#: inc/widgets/social_widget.php:58
+msgid "Tumblr"
+msgstr "Tumblr"
+
+#: functions.php:495 inc/theme-options.php:1050
+#: inc/widgets/social_widget.php:59
+msgid "Youtube"
+msgstr "Youtube"
+
+#: functions.php:498 inc/theme-options.php:1058
+#: inc/widgets/social_widget.php:60
+msgid "Vimeo"
+msgstr "Vimeo"
+
+#: functions.php:501 inc/theme-options.php:1066
+#: inc/widgets/social_widget.php:61
+msgid "Soundcloud"
+msgstr "Soundcloud"
+
+#: functions.php:504 inc/theme-options.php:1074
+#: inc/widgets/social_widget.php:62
+msgid "Dribbble"
+msgstr "Dribbble"
+
+#: functions.php:507 inc/theme-options.php:1082
+#: inc/widgets/social_widget.php:63
+msgid "Reddit"
+msgstr "Reddit"
+
+#: functions.php:510 inc/theme-options.php:1090
+#: inc/widgets/social_widget.php:64
+msgid "RSS"
+msgstr "RSS"
+
+#: functions.php:522
+msgid "Vafpress Post Formats UI"
+msgstr "Vafpress Post Formats UI"
+
+#: functions.php:529
+msgid "Milliomola Contact Methods"
+msgstr "Milliomola Contact Methods"
+
+#: functions.php:541
+msgid "Redux Framework"
+msgstr "Redux Framework"
+
+#: functions.php:547
+msgid "WP Instagram Widget"
+msgstr "WP Instagram Widget"
+
+#: functions.php:552
+msgid "Dave's WordPress Live Search"
+msgstr "Dave's WordPress Live Search"
+
+#: inc/redux-templates/header.tpl.php:8
+msgid "Theme options"
+msgstr "لوحة التحكم"
+
+#: inc/redux-templates/header.tpl.php:10
+msgid "version"
+msgstr "الاصدار"
+
+#: inc/templates/related_posts.php:47
+msgid "You Might Also Like"
+msgstr "قد يعجبك ايضا"
+
+#: inc/theme-options.php:60 inc/theme-options.php:61
+msgid "Breaknews"
+msgstr "Breaknews"
+
+#: inc/theme-options.php:173
+msgid "Documentation"
+msgstr "التعليمات"
+
+#: inc/theme-options.php:179
+msgid "Support"
+msgstr "الدعم"
+
+#: inc/theme-options.php:185
+msgid "Extensions"
+msgstr "الملحقات"
+
+#: inc/theme-options.php:213
+msgid "General"
+msgstr "عام"
+
+#: inc/theme-options.php:220
+msgid "Theme Font"
+msgstr "الخط الرئيسي للقالب"
+
+#: inc/theme-options.php:235
+msgid "RTL mode"
+msgstr "تمكين وضع RTL"
+
+#: inc/theme-options.php:236
+msgid "Enable RTL style"
+msgstr "دعم اللغة العربية"
+
+#: inc/theme-options.php:237 inc/theme-options.php:246
+#: inc/theme-options.php:255 inc/theme-options.php:263
+#: inc/theme-options.php:272 inc/theme-options.php:281
+#: inc/theme-options.php:290 inc/theme-options.php:306
+#: inc/theme-options.php:315 inc/theme-options.php:537
+#: inc/theme-options.php:545 inc/theme-options.php:554
+#: inc/theme-options.php:570 inc/theme-options.php:611
+#: inc/theme-options.php:714 inc/theme-options.php:722
+#: inc/theme-options.php:730 inc/theme-options.php:738
+#: inc/theme-options.php:878 inc/theme-options.php:887
+#: inc/theme-options.php:896 inc/theme-options.php:905
+#: inc/theme-options.php:913 inc/theme-options.php:921
+#: inc/theme-options.php:961 inc/theme-options.php:969
+#: inc/theme-options.php:1111 inc/theme-options.php:1119
+#: inc/theme-options.php:1127 inc/theme-options.php:1135
+msgid "on"
+msgstr "تفعيل"
+
+#: inc/theme-options.php:238 inc/theme-options.php:247
+#: inc/theme-options.php:256 inc/theme-options.php:264
+#: inc/theme-options.php:273 inc/theme-options.php:282
+#: inc/theme-options.php:291 inc/theme-options.php:307
+#: inc/theme-options.php:316 inc/theme-options.php:538
+#: inc/theme-options.php:546 inc/theme-options.php:555
+#: inc/theme-options.php:571 inc/theme-options.php:612
+#: inc/theme-options.php:715 inc/theme-options.php:723
+#: inc/theme-options.php:731 inc/theme-options.php:739
+#: inc/theme-options.php:879 inc/theme-options.php:888
+#: inc/theme-options.php:897 inc/theme-options.php:906
+#: inc/theme-options.php:914 inc/theme-options.php:922
+#: inc/theme-options.php:962 inc/theme-options.php:970
+#: inc/theme-options.php:1112 inc/theme-options.php:1120
+#: inc/theme-options.php:1128 inc/theme-options.php:1136
+msgid "off"
+msgstr "الغاء"
+
+#: inc/theme-options.php:244
+msgid "Home Sidebar"
+msgstr "الشريط الجانبي للصفحة الرئيسية"
+
+#: inc/theme-options.php:245
+msgid "show or hide sidebar on homepage"
+msgstr "إظهار أو إخفاء الشريط الجانبي على الصفحة الرئيسية"
+
+#: inc/theme-options.php:253
+msgid "Enable Sticky Menu"
+msgstr "تمكين القائمة الثابتة"
+
+#: inc/theme-options.php:254
+msgid "make the nav menu fixed when scroll"
+msgstr "جعل القائمة الرئيسية ثابتة في الأعلى عند التمرير"
+
+#: inc/theme-options.php:262
+msgid "Use Nicescroll"
+msgstr "استخدام السكرول الملون"
+
+#: inc/theme-options.php:270
+msgid "Enable Search"
+msgstr "تمكين البحث"
+
+#: inc/theme-options.php:271
+msgid "show or hide search button in the nav menu"
+msgstr "إظهار أو إخفاء زر البحث في القائمة الرئيسية"
+
+#: inc/theme-options.php:279
+msgid "Scroll Button"
+msgstr "زر التمرير"
+
+#: inc/theme-options.php:280
+msgid "show \"move to top\" button when scroll"
+msgstr "عرض زر الانتقال السريع الى الاعلى"
+
+#: inc/theme-options.php:288
+msgid "Contact Button"
+msgstr "زر اتصل بنا"
+
+#: inc/theme-options.php:289
+msgid "show \"Contact Us\" button"
+msgstr "إظهار زر \"اتصل بنا\""
+
+#: inc/theme-options.php:297
+msgid "Contact7 Form Shortcode"
+msgstr "Contact7 Form Shortcode"
+
+#: inc/theme-options.php:298
+#, php-format
+msgid "install %1$s and create new form and get it's shortcode."
+msgstr "تثبيت %1$s وقم بإنشاء نموذج جديد و احصل على ال shortcode"
+
+#: inc/theme-options.php:304
+msgid "Social Button"
+msgstr "زر الروابط الاجتماعية"
+
+#: inc/theme-options.php:305
+msgid "show or hide smart social button"
+msgstr "إظهار أو إخفاء زر الروابط الاجتماعية"
+
+#: inc/theme-options.php:313
+msgid "Pages Comments"
+msgstr "عرض التعليقات بالصفحات"
+
+#: inc/theme-options.php:314
+msgid "show comments in the pages if enabled"
+msgstr "إظهار التعليقات في الصفحات إذا كان ممكنا"
+
+#: inc/theme-options.php:322
+msgid "Logo Type"
+msgstr "نوع شعار الموقع"
+
+#: inc/theme-options.php:323
+msgid "text logo will display your blog name"
+msgstr "اذا اخترت النص فسيتم عرض اسم مدونتك / موقعك"
+
+#: inc/theme-options.php:325
+msgid "Photo"
+msgstr "صورة"
+
+#: inc/theme-options.php:326
+msgid "Text"
+msgstr "نص"
+
+#: inc/theme-options.php:333
+msgid "main Logo"
+msgstr "شعار الموقع"
+
+#: inc/theme-options.php:334
+msgid "you must set \"logo type\" to \"image\" to use this image"
+msgstr "يجب عليك تغيير نوع الشعار إلى صورة لاستخدام هذه الصورة"
+
+#: inc/theme-options.php:343
+msgid "Custom Css"
+msgstr "اضف كود الCSS الخاص بك"
+
+#: inc/theme-options.php:344
+msgid ""
+"you can easily add some css to customize any element of any page in your blog"
+msgstr "يمكنك بسهولة إضافة بعض اكواد CSS لتخصيص أي عنصر من أي صفحة في الموقع"
+
+#: inc/theme-options.php:352
+msgid "Custom Javascript"
+msgstr "اضف كود الJAVASCRIPT الخاص بك"
+
+#: inc/theme-options.php:353
+msgid "you can add native javascript or jquery code"
+msgstr "يمكنك إضافة كود جافا سكريبت أو جيكويرى"
+
+#: inc/theme-options.php:364
+msgid "Colors"
+msgstr "الالوان"
+
+#: inc/theme-options.php:371
+msgid "Main Color"
+msgstr "اللون الأساسي"
+
+#: inc/theme-options.php:378
+msgid "Main Background"
+msgstr "اللون الاساسى للخلفيات"
+
+#: inc/theme-options.php:385
+msgid "Nav Menu Color"
+msgstr "لون القائمة الاساسية"
+
+#: inc/theme-options.php:392
+msgid "Nav Menu BG"
+msgstr "خلفية  القائمة الاساسية"
+
+#: inc/theme-options.php:399
+msgid "Nav Menu Hover BG"
+msgstr "لون القائمة عند تمرير المؤشر"
+
+#: inc/theme-options.php:406
+msgid "Nav Menu Border Bottom Color"
+msgstr "لون الخط اسفل القائمة"
+
+#: inc/theme-options.php:413
+msgid "Dropdown Color"
+msgstr "لون القائمة المنسدلة"
+
+#: inc/theme-options.php:420
+msgid "Dropdown BG"
+msgstr "خلفية القائمة المنسدلة"
+
+#: inc/theme-options.php:427
+msgid "Dropdown Hover Color"
+msgstr "لون القائمة المنسدلة عند تمرير المؤشر"
+
+#: inc/theme-options.php:434
+msgid "Dropdown Hover BG"
+msgstr "خلفية القائمة المنسدلة عند تمرير المؤشر"
+
+#: inc/theme-options.php:441
+msgid "Dropdown Border Color"
+msgstr "لون الحدود في القائمة المنسدلة"
+
+#: inc/theme-options.php:448
+msgid "Navbar Buttons Color"
+msgstr "لون الازرار بالقائمة الرئيسية"
+
+#: inc/theme-options.php:455
+msgid "Navbar Buttons BG"
+msgstr "خلفية الازرار بالقائمة الرئيسية"
+
+#: inc/theme-options.php:462
+msgid "Navbar Buttons Hover BG"
+msgstr "خلفية الازرار بالقائمة الرئيسية عند تمرير المؤشر"
+
+#: inc/theme-options.php:469
+msgid "Widget Title Color"
+msgstr "لون عنوان الwidgets"
+
+#: inc/theme-options.php:476
+msgid "Widget Title BG"
+msgstr "خلفية عنوان الwidgets"
+
+#: inc/theme-options.php:483
+msgid "Footer BG"
+msgstr "خلفية الفوتر"
+
+#: inc/theme-options.php:490
+msgid "Footer Headings Color"
+msgstr "لون عناوين الفوتر"
+
+#: inc/theme-options.php:497
+msgid "Small Footer BG"
+msgstr "خلفية الفوتر الاصغر"
+
+#: inc/theme-options.php:504
+msgid "Scroll Button Color"
+msgstr "لون زر الانتقال للاعلى"
+
+#: inc/theme-options.php:511
+msgid "Contact Button Color"
+msgstr "لون زر \" اتصل بنا \""
+
+#: inc/theme-options.php:518
+msgid "Social Button Color"
+msgstr "لون زر الروابط الاجتماعية"
+
+#: inc/theme-options.php:529
+msgid "Top Bar"
+msgstr "الشريط العلوى"
+
+#: inc/theme-options.php:536
+msgid "Show Top Bar"
+msgstr "عرض الشريط العلوي"
+
+#: inc/theme-options.php:544
+msgid "Top Bar Social"
+msgstr "الروابط الاجتماعية بالشريط العلوي"
+
+#: inc/theme-options.php:553
+msgid "Show Email"
+msgstr "عرض البريد الإلكتروني"
+
+#: inc/theme-options.php:562
+msgid "Email"
+msgstr "البريد الالكترونى"
+
+#: inc/theme-options.php:569
+msgid "Show Phone Number"
+msgstr "عرض رقم الهاتف"
+
+#: inc/theme-options.php:578
+msgid "Phone Number"
+msgstr "رقم الهاتف"
+
+#: inc/theme-options.php:585
+msgid "Show Address"
+msgstr "عرض العنوان"
+
+#: inc/theme-options.php:592
+msgid "Address"
+msgstr "العنوان"
+
+#: inc/theme-options.php:603
+msgid "Featured Posts"
+msgstr "المقالات المميزة"
+
+#: inc/theme-options.php:610
+msgid "Enable Featured Posts"
+msgstr "عرض المقالات المميزة"
+
+#: inc/theme-options.php:618
+msgid "Featured Layout"
+msgstr "شكل المواضيع المميزة"
+
+#: inc/theme-options.php:646
+msgid "Query Type"
+msgstr "نوع الاستعلام:"
+
+#: inc/theme-options.php:648
+msgid "Recent Posts"
+msgstr "المقالات الاخيرة"
+
+#: inc/theme-options.php:649 inc/widgets/popular_posts_widget.php:28
+msgid "Popular Posts"
+msgstr "المواضيع الاكثر قراءة"
+
+#: inc/theme-options.php:650
+msgid "Trending Posts"
+msgstr "المقالات الأكثر مشاهدة"
+
+#: inc/theme-options.php:651
+msgid "Random Posts"
+msgstr "مقالات عشوائية"
+
+#: inc/theme-options.php:658
+msgid "Image Hover Effect"
+msgstr "تأثير تمرير المؤشر على الصورة"
+
+#: inc/theme-options.php:660
+msgid "Image Zoom"
+msgstr "تكبير"
+
+#: inc/theme-options.php:661
+msgid "Image Light"
+msgstr "تقليل الشفافية"
+
+#: inc/theme-options.php:662
+msgid "Image Dark"
+msgstr "زيادة الشفافية"
+
+#: inc/theme-options.php:669
+msgid "Featured Excluded Formats"
+msgstr "أنواع المقالات المستثناة"
+
+#: inc/theme-options.php:670
+msgid ""
+"choose the post formats that you don't want to display in the featured area"
+msgstr "اختر الأنواع التي لا تريد عرضها مع المقالات المميزة"
+
+#: inc/theme-options.php:672
+msgid "Video"
+msgstr "فيديو"
+
+#: inc/theme-options.php:673
+msgid "Audio"
+msgstr "صوت"
+
+#: inc/theme-options.php:674
+msgid "Gallery"
+msgstr "معرض صور"
+
+#: inc/theme-options.php:675
+msgid "Image"
+msgstr "صورة"
+
+#: inc/theme-options.php:687
+msgid "Featured Posts Categories"
+msgstr "اقسام المواضيع المميزة"
+
+#: inc/theme-options.php:688
+msgid ""
+"specify some categories to be displayed in the featured area, enter the "
+"categories IDs separated by comma, if this field is empty, all categories "
+"will be available in the featured area"
+msgstr ""
+"حدد بعض الاقسام ليتم عرضها في المنطقة المميزة، أدخل الID الخاص بالاقسام التي "
+"تريد مفصولة بفواصل، إذا كان هذا الحقل فارغا، جميع الفئات ستكون متاحة في "
+"منطقة المقالات المميزة"
+
+#: inc/theme-options.php:695
+msgid "Featured Slides Count"
+msgstr "عدد شرائح السلايدر"
+
+#: inc/theme-options.php:696
+msgid ""
+"specify a number of posts to be displayd in the slider in the featured area, "
+"this works only if you choose a layout that have a slider"
+msgstr ""
+"حدد عدد المقالات التي سيتم عرضها في السلايدر الخاص بمنطقة المقالات المميزة ، "
+"هذه الخاصية تعمل فقط مع الإطارات التي تحتوى على سلايدر"
+
+#: inc/theme-options.php:706
+msgid "Posts Style"
+msgstr "تنسيق المقالات"
+
+#: inc/theme-options.php:713
+msgid "Post Meta - Author"
+msgstr "كاتب المقال"
+
+#: inc/theme-options.php:721
+msgid "Post Meta - Date"
+msgstr "تاريخ المقال"
+
+#: inc/theme-options.php:729
+msgid "Post Meta - Comments"
+msgstr "التعليقات"
+
+#: inc/theme-options.php:737
+msgid "Post Categories"
+msgstr "اقسام الموضوع"
+
+#: inc/theme-options.php:745
+msgid "Category Position"
+msgstr "مكان عرض اقسام الموضوع"
+
+#: inc/theme-options.php:747
+msgid "On Image"
+msgstr "فوق الصورة"
+
+#: inc/theme-options.php:748
+msgid "Under Image"
+msgstr "تحت العنوان"
+
+#: inc/theme-options.php:756
+msgid "Home Posts Layout"
+msgstr "شكل المقالات بالصفحةالرئيسية"
+
+#: inc/theme-options.php:780
+msgid "Home Posts Count"
+msgstr "عدد المقالات بالصفحة الرئيسية"
+
+#: inc/theme-options.php:787
+msgid "Home Pagination Style"
+msgstr "نمط ترقيم المقالات بالصفحة الرئيسية"
+
+#: inc/theme-options.php:789 inc/theme-options.php:823
+#: inc/theme-options.php:857
+msgid "Numbers"
+msgstr "ارقام"
+
+#: inc/theme-options.php:790 inc/theme-options.php:824
+#: inc/theme-options.php:858
+msgid "Next / Prev"
+msgstr "السابق / التالى"
+
+#: inc/theme-options.php:797
+msgid "Archive Posts Layout"
+msgstr "شكل المقالات بالارشيف"
+
+#: inc/theme-options.php:821
+msgid "Archive Pagination Style"
+msgstr "نمط ترقيم المقالات بالارشيف"
+
+#: inc/theme-options.php:831
+msgid "Search Posts Layout"
+msgstr "شكل المقالات بصفحة البحث"
+
+#: inc/theme-options.php:855
+msgid "Search Pagination Style"
+msgstr "نمط ترقيم المقالات بصفحة البحث"
+
+#: inc/theme-options.php:869
+msgid "Single Post"
+msgstr "صفحة عرض المقال"
+
+#: inc/theme-options.php:876
+msgid "Sidebar"
+msgstr "الشريط الجانبى"
+
+#: inc/theme-options.php:877
+msgid "show or hide sidebar on the single page"
+msgstr "إظهار أو إخفاء الشريط الجانبي في صفحة عرض المقال"
+
+#: inc/theme-options.php:885
+msgid "Post Tags"
+msgstr "وسوم المقال"
+
+#: inc/theme-options.php:886
+msgid "show or hide post tags if have tags"
+msgstr "إظهار أو إخفاء وسوم المقال"
+
+#: inc/theme-options.php:894
+msgid "Share Buttons"
+msgstr "أزرار المشاركة"
+
+#: inc/theme-options.php:895
+msgid "show or hide social media share buttons"
+msgstr "إظهار أو إخفاء أزرار المشاركة الاجتماعية"
+
+#: inc/theme-options.php:903
+msgid "Post Author Info"
+msgstr "عرض مربع المعلومات عن الكاتب"
+
+#: inc/theme-options.php:904
+msgid "show or hide post author box"
+msgstr "إظهار أو إخفاء مربع المعلومات عن الكاتب"
+
+#: inc/theme-options.php:912
+msgid "Show Comments"
+msgstr "عرض التعليقات"
+
+#: inc/theme-options.php:920
+msgid "Show Related Posts"
+msgstr "عرض المواضيع ذات صلة"
+
+#: inc/theme-options.php:928
+msgid "Related Posts In"
+msgstr "جلب المواضيع ذات صلة حسب"
+
+#: inc/theme-options.php:929
+msgid "choose to display related posts depending on categories or tags"
+msgstr "عرض المواضيع ذات الصلة حسب الأقسام او الوسوم"
+
+#: inc/theme-options.php:931
+msgid "same categories"
+msgstr "نفس الاقسام"
+
+#: inc/theme-options.php:932
+msgid "same tags"
+msgstr "نفس الوسوم"
+
+#: inc/theme-options.php:939
+msgid "Related Posts Order"
+msgstr "ترتيب المواضيع ذات الصلة"
+
+#: inc/theme-options.php:941
+msgid "date"
+msgstr "التاريخ"
+
+#: inc/theme-options.php:942
+msgid "random"
+msgstr "عشوائى"
+
+#: inc/theme-options.php:953
+msgid "Footer"
+msgstr "الفوتر"
+
+#: inc/theme-options.php:960
+msgid "Show small footer"
+msgstr "عرض او اخفاء الفوتر"
+
+#: inc/theme-options.php:968
+msgid "Show footer menu"
+msgstr "إظهار قائمة الفوتر"
+
+#: inc/theme-options.php:976
+msgid "You may need this &copy;"
+msgstr "قد تحتاج إلى هذا ©"
+
+#: inc/theme-options.php:977
+msgid "Copyright text"
+msgstr "نص حقوق النشر"
+
+#: inc/theme-options.php:987
+msgid "Social Links"
+msgstr "روابط التواصل"
+
+#: inc/theme-options.php:995
+msgid "Facebook url"
+msgstr "عنوان الرابط"
+
+#: inc/theme-options.php:1003
+msgid "Twitter url"
+msgstr "عنوان الرابط"
+
+#: inc/theme-options.php:1011
+msgid "Google+ url"
+msgstr "عنوان الرابط"
+
+#: inc/theme-options.php:1018
+msgid "LinkedIn"
+msgstr "عنوان الرابط"
+
+#: inc/theme-options.php:1019
+msgid "LinkedIn url"
+msgstr "عنوان الرابط"
+
+#: inc/theme-options.php:1027
+msgid "Pinterest url"
+msgstr "عنوان الرابط"
+
+#: inc/theme-options.php:1035
+msgid "Instagram url"
+msgstr "عنوان الرابط"
+
+#: inc/theme-options.php:1043
+msgid "Tumblr url"
+msgstr "عنوان الرابط"
+
+#: inc/theme-options.php:1051
+msgid "Youtube url"
+msgstr "عنوان الرابط"
+
+#: inc/theme-options.php:1059
+msgid "Vimeo url"
+msgstr "عنوان الرابط"
+
+#: inc/theme-options.php:1067
+msgid "Soundcloud url"
+msgstr "عنوان الرابط"
+
+#: inc/theme-options.php:1075
+msgid "Dribbble url"
+msgstr "عنوان الرابط"
+
+#: inc/theme-options.php:1083
+msgid "Reddit url"
+msgstr "عنوان الرابط"
+
+#: inc/theme-options.php:1091
+msgid "RSS url"
+msgstr "عنوان الرابط"
+
+#: inc/theme-options.php:1102
+msgid "Sharing"
+msgstr "المشاركة"
+
+#: inc/theme-options.php:1104
+msgid "more sharing methods coming soon .."
+msgstr "المزيد من وسائل المشاركة ستكون متاحة قريبا .."
+
+#: inc/theme-options.php:1110
+msgid "Show FaceBook Share button"
+msgstr "إظهار زر المشاركة على فيسبوك"
+
+#: inc/theme-options.php:1118
+msgid "Show Twitter Share Button"
+msgstr "إظهار زر المشاركة على تويتر"
+
+#: inc/theme-options.php:1126
+msgid "Show Google+ Share button"
+msgstr "إظهار زر المشاركة على جوجل بلس"
+
+#: inc/theme-options.php:1134
+msgid "Show Pinterest Share button"
+msgstr "إظهار زر المشاركة على بينترست"
+
+#: inc/widgets/about_widget.php:12
+msgid "milliomola about widget"
+msgstr "milliomola about widget"
+
+#: inc/widgets/about_widget.php:15
+msgid "About Section With Picture And Description"
+msgstr "عرض معلومات مع صورة و وصف"
+
+#: inc/widgets/about_widget.php:72 inc/widgets/facebook_widget.php:128
+#: inc/widgets/social_widget.php:121 inc/widgets/twitter_widget.php:113
+msgid "Title :"
+msgstr "العنوان"
+
+#: inc/widgets/about_widget.php:78
+msgid "Image URL :"
+msgstr "رابط الصورة"
+
+#: inc/widgets/about_widget.php:84
+msgid "Make Image Circle :"
+msgstr "جعل الصورة دائرية"
+
+#: inc/widgets/about_widget.php:90
+msgid "Description :"
+msgstr "الوصف"
+
+#: inc/widgets/facebook_widget.php:12
+msgid "milliomola facebook widget"
+msgstr "milliomola facebook widget"
+
+#: inc/widgets/facebook_widget.php:15 inc/widgets/twitter_widget.php:15
+msgid "Display Facebook page with many options"
+msgstr "عرض صفحة ألفيس بوك مع العديد من الخيارات"
+
+#: inc/widgets/facebook_widget.php:134
+msgid "Facebook Application ID :"
+msgstr "معرف تطبيق الفيس بوك"
+
+#: inc/widgets/facebook_widget.php:140
+msgid "Page URL :"
+msgstr "عنوان رابط الصفحة"
+
+#: inc/widgets/facebook_widget.php:146
+msgid "Show Timeline Tab"
+msgstr "عرض نافذة البوستات"
+
+#: inc/widgets/facebook_widget.php:152
+msgid "Show Events Tab"
+msgstr "عرض نافذة الأحداث"
+
+#: inc/widgets/facebook_widget.php:158
+msgid "Show Messages Tab"
+msgstr "عرض نافذة الرسائل"
+
+#: inc/widgets/facebook_widget.php:164
+msgid "Show Small Header"
+msgstr "عرض الهيدر الصغير"
+
+#: inc/widgets/facebook_widget.php:170
+msgid "Hide Page Cover"
+msgstr "إخفاء صورة  الغلاف"
+
+#: inc/widgets/facebook_widget.php:177
+msgid "Show Friends Faces"
+msgstr "إظهار صور الأصدقاء"
+
+#: inc/widgets/facebook_widget.php:184 inc/widgets/twitter_widget.php:149
+msgid "Height"
+msgstr "الطول"
+
+#: inc/widgets/latest_posts_widget.php:12
+msgid "milliomola latest posts widget"
+msgstr "milliomola latest posts widget"
+
+#: inc/widgets/latest_posts_widget.php:15
+msgid "Show Your Latest Posts"
+msgstr "عرض أخر المقالات في مدونتك"
+
+#: inc/widgets/latest_posts_widget.php:28
+msgid "Latest Posts"
+msgstr "اخر المقالات"
+
+#: inc/widgets/latest_posts_widget.php:90
+#: inc/widgets/popular_posts_widget.php:90
+msgid "Title:"
+msgstr "العنوان"
+
+#: inc/widgets/latest_posts_widget.php:93
+#: inc/widgets/popular_posts_widget.php:93
+msgid "Number of posts to show:"
+msgstr "عدد المقالات المعروضة"
+
+#: inc/widgets/latest_posts_widget.php:97
+#: inc/widgets/popular_posts_widget.php:97
+msgid "Display post date?"
+msgstr "عرض تاريخ المقال ؟"
+
+#: inc/widgets/popular_posts_widget.php:12
+msgid "milliomola popular posts widget"
+msgstr "milliomola popular posts widget"
+
+#: inc/widgets/popular_posts_widget.php:15
+msgid "Show Popular Posts"
+msgstr "عرض المواضيع الأكثر قراءة"
+
+#: inc/widgets/social_widget.php:12
+msgid "milliomola social widget"
+msgstr "milliomola social widget"
+
+#: inc/widgets/social_widget.php:15
+msgid "Show Your Social Media Icons"
+msgstr "عرض ايقونات التواصل الخاصة بك"
+
+#: inc/widgets/social_widget.php:55
+msgid "Linkedin"
+msgstr "Linkedin"
+
+#: inc/widgets/social_widget.php:127
+msgid "Show Facebook :"
+msgstr "عرض ايقونة Facebook"
+
+#: inc/widgets/social_widget.php:133
+msgid "Show Twitter :"
+msgstr "عرض ايقونة Twitter"
+
+#: inc/widgets/social_widget.php:139
+msgid "Show Google+ :"
+msgstr "عرض ايقونة Google+"
+
+#: inc/widgets/social_widget.php:145
+msgid "Show Linkedin :"
+msgstr "عرض ايقونة Linkedin"
+
+#: inc/widgets/social_widget.php:151
+msgid "Show Pinterest :"
+msgstr "عرض ايقونة Pinterest"
+
+#: inc/widgets/social_widget.php:157
+msgid "Show Instagram :"
+msgstr "عرض ايقونة Instagram"
+
+#: inc/widgets/social_widget.php:163
+msgid "Show Tumblr :"
+msgstr "عرض ايقونة Tumblr"
+
+#: inc/widgets/social_widget.php:169
+msgid "Show Youtube :"
+msgstr "عرض ايقونة Youtube"
+
+#: inc/widgets/social_widget.php:175
+msgid "Show Vimeo :"
+msgstr "عرض ايقونة Vimeo"
+
+#: inc/widgets/social_widget.php:181
+msgid "Show Soundcloud :"
+msgstr "عرض ايقونة Soundcloud"
+
+#: inc/widgets/social_widget.php:187
+msgid "Show Dribbble :"
+msgstr "عرض ايقونة Dribbble"
+
+#: inc/widgets/social_widget.php:193
+msgid "Show Reddit :"
+msgstr "عرض ايقونة Reddit"
+
+#: inc/widgets/social_widget.php:199
+msgid "Show RSS :"
+msgstr "عرض ايقونة RSS"
+
+#: inc/widgets/social_widget.php:204
+msgid "Icons Style :"
+msgstr "شكل الايقونات"
+
+#: inc/widgets/social_widget.php:207
+msgid "Square"
+msgstr "مربع"
+
+#: inc/widgets/social_widget.php:212
+msgid "Circle"
+msgstr "دائرة"
+
+#: inc/widgets/social_widget.php:217
+msgid "Colored Square"
+msgstr "مربع ملون"
+
+#: inc/widgets/social_widget.php:222
+msgid "Colored Reactangle"
+msgstr "مستطيل ملون"
+
+#: inc/widgets/twitter_widget.php:12
+msgid "milliomola twitter widget"
+msgstr "milliomola twitter widget"
+
+#: inc/widgets/twitter_widget.php:119
+msgid "Username :"
+msgstr "اسم المستخدم "
+
+#: inc/widgets/twitter_widget.php:125
+msgid "Link Color :"
+msgstr "لون الرابط"
+
+#: inc/widgets/twitter_widget.php:131
+msgid "Hide Header"
+msgstr "إخفاءالهيدر"
+
+#: inc/widgets/twitter_widget.php:137
+msgid "Hide Footer"
+msgstr "إخفاء الفوتر"
+
+#: inc/widgets/twitter_widget.php:143
+msgid "Make Transparent"
+msgstr "شفاف"
+
+#: search.php:14
+#, php-format
+msgid "Search Results for: %s"
+msgstr "نتائج البحث عن : %s"
+
+#: searchform.php:3
+msgid "Type and hit enter .."
+msgstr "اكتب و اضغط Enter"
+
+#: single.php:97
+msgid "share post :"
+msgstr "شارك المقال:"
+
+#: tag.php:14
+msgid "Tag : "
+msgstr "الوسم :"
+
+#: tag.php:15
+#, php-format
+msgid "%s"
+msgstr "‏%s"
+
+#: template-parts/content-none.php:6
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+"هل انت مستعد لنشر المنشور الاول الخاص بك ؟  <a href=\"%1$s\"> ابدا من هنا </"
+"a>"
+
+#: template-parts/content-none.php:10
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr "عذرا ، لكن لم يتم العثور على نتائج لبحثك ، يمكنك البحث مرة أخرى"
+
+#: template-parts/content-none.php:16
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr "يبدو أننا لم نتمكن من إيجاد ما تبحث عنه."
+
+#: template-parts/content-page.php:21
+msgid "Pages:"
+msgstr "الصفحات"
+
+#: template-parts/content-page.php:33
+#, php-format
+msgid "Edit %s"
+msgstr "تعديل %s"
+
+#: template-parts/content.php:44
+msgid "Continue Reading .."
+msgstr "اقرأ المزيد .."
+
+#~ msgid "Oops! That page can&rsquo;t be found."
+#~ msgstr "عذراً، لا يمكن العثور على تلك الصفحة."
+
+#~ msgid "Posts By: "
+#~ msgstr "كتب بواسطة:"
+
+#~ msgid "Category : "
+#~ msgstr "القسم :"

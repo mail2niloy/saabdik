@@ -41,6 +41,7 @@ export class ReadPage {
   selectedTrack:any;
   library_info:any;
   videoURL : any;
+  audioURL : any;
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
@@ -85,6 +86,7 @@ export class ReadPage {
         this.videoEnabled = true;
       }
     this.videoURL = this.sanitizer.bypassSecurityTrustResourceUrl(this.post_data.video_playlist);
+    this.audioURL = this.sanitizer.bypassSecurityTrustResourceUrl(this.post_data.audio_playlist);
     console.log(this.post_data.tags[i].name);//This will print the objects
     console.log('index '+i);//This will print the index of the objects
     }
@@ -117,7 +119,7 @@ export class ReadPage {
         this.post.content_rendered = this.post.content.rendered;
         this.author['author_thumbnail'] = this.author['basic_user_avatar'][96];
         console.log("library - "+JSON.stringify(this.library_info));
-        //console.log(this.author['basic_user_avatar'][250]);
+        console.log(this.post);
         
 
         //console.log("Like "+this.likes[0].is_liked);

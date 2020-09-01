@@ -1,0 +1,12 @@
+/*** widgets ***/
+.mm-widget input[type="text"],
+.mm-widget textarea {
+	width: 90%;
+}
+.mm-widget textarea {
+	height: 80px;
+}
+.mm-widget label {
+	min-width: 50%;
+	display: inline-block;
+}

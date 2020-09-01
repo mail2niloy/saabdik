@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { ReadPage } from '../read/read';
+import { AuthorPage } from '../author/author';
 import { SearchPage } from '../search/search';
 import { RemoteDataProvider } from '../../providers/remote-data/remote-data';
 import { AuthenticationService } from '../../services/authentication.service';
@@ -255,6 +256,10 @@ export class HomePage {
 
   openReadPage(post:any[]){
     this.navCtrl.push(ReadPage, {post:post})
+  }
+
+  openAuthorPage(author:any[]){
+    this.navCtrl.push(AuthorPage, {author:author})
   }
 
   ionViewDidLoad() {

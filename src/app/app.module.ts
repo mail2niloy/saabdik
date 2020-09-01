@@ -22,6 +22,7 @@ import { LoginPage } from '../pages/login/login';
 import { ProfilePage } from '../pages/profile/profile';
 import { MembershipPage } from '../pages/membership/membership';
 import { AudioPlayerPage } from '../pages/audio-player/audio-player';
+import { AuthorPage } from '../pages/author/author';
 
 import { CommonHeaderComponent } from '../components/common-header/common-header';
 import { CommonSideMenuComponent } from '../components/common-side-menu/common-side-menu';
@@ -56,6 +57,7 @@ export function myCustomAudioProviderFactory() {
     HomePage,
     CategoryPage,
     ReadPage,
+    AuthorPage,
     PostsPage,
     MenuPage,
     SearchPage,
@@ -83,6 +85,7 @@ export function myCustomAudioProviderFactory() {
     HomePage,
     CategoryPage,
     ReadPage,
+    AuthorPage,
     PostsPage,
     MenuPage,
     SearchPage,

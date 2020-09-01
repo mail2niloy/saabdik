@@ -9,6 +9,7 @@ import { LoginPage } from '../login/login';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { AuthenticationService } from '../../services/authentication.service';
 import { RemoteDataProvider } from '../../providers/remote-data/remote-data';
+import { MembershipPage } from '../membership/membership';
 
 /**
  * Generated class for the MenuPage page.
@@ -71,11 +72,18 @@ export class MenuPage {
     console.log('ionViewDidLoad CategoryPage');
   }
   openReadPage(post:any[]){
-    this.navCtrl.push(ReadPage, {post:post})
+    this.navCtrl.push(ReadPage, {post:post});
   }
+  getTagPosts(tag: any, title:any){
+    this.navCtrl.push(PostsPage, {type:'tag', title:title, tag:tag});
+  }  
   openLoginPage()
   {
     this.navCtrl.push(LoginPage);
+  }
+  openMembeshipPage()
+  {
+    this.navCtrl.push(MembershipPage);
   }
   presentLoadingDefault() {
      this.loading = this.loadingController.create({

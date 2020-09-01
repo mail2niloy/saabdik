@@ -14,17 +14,26 @@
 
 
 <ion-content padding>
+  
+    <ion-grid >
+      <ion-row >
+        <ion-col col-6 col-md-4 col-xl-3 *ngFor="let category of categories" (click)="getCategoryPosts(category)">
+          <img class="tam-image" src="{{category.cat_image}}">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
 
-	<ion-list>
+	<!-- <ion-list>
         
 		<button ion-item *ngFor="let category of categories" (click)="getCategoryPosts(category)">  
           
           <ion-label >
-            <h6 class="cat-name">{{category.name}}</h6>
+            <h6 class="cat-name">{{category.cat_name}}</h6>
           </ion-label>
         </button>
 
         
-      </ion-list>
+      </ion-list> -->
 
 </ion-content>

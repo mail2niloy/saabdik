@@ -16,6 +16,8 @@ import { ReadPage } from '../read/read';
 export class PostsPage {
   loading:any;
   category:any;
+  tag:any;
+  type:any;
   posts:any = [];  
   data: any = [];
   page = 1;
@@ -23,16 +25,34 @@ export class PostsPage {
   errorMessage:any;
   public pagingEnabled: boolean = true;
   constructor(public navCtrl: NavController, public navParams: NavParams, private loadingController: LoadingController, public RemoteDataProvider: RemoteDataProvider) {
-  	this.category = this.navParams.get('category');
+  	this.type = this.navParams.get('type');
+    this.title = this.navParams.get('title');
+    if(this.type=="tag"){
+      this.tag = this.navParams.get('tag');
+    }
+    else if(this.type=="category"){
+      this.category = this.navParams.get('category');
+    }
+    
+    
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PostsPage');
     this.presentLoadingDefault();
-    this.RemoteDataProvider.listCategoryPosts(this.category.id, this.per_page, this.page).subscribe(data => {
+    if(this.type=="tag"){
+      this.RemoteDataProvider.listTagPosts(this.tag, this.per_page, this.page).subscribe(data => {
         this.posts = data;
         this.loading.dismiss();
         console.log(data)  });
+    }
+     else if(this.type=="category"){
+      this.RemoteDataProvider.listCategoryPosts(this.category.id, this.per_page, this.page).subscribe(data => {
+        this.posts = data;
+        this.loading.dismiss();
+        console.log(data)  });
+    }
+    
   }
 
   doInfinite(infiniteScroll) {
@@ -75,6 +95,9 @@ export class PostsPage {
 
     this.loading.present();
     
+  }
+  getCategoryPosts(category: any){
+    this.navCtrl.push(PostsPage, {category:category})
   }
   openReadPage(post:any[]){
     this.navCtrl.push(ReadPage, {post:post})

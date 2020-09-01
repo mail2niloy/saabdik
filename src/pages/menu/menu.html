@@ -6,53 +6,55 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Menu
-    </ion-title>
+    <ion-title>অন্যান্য</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
+  <ion-card class="premeium">
+      <ion-card-header color="light">
+        প্রিমিয়াম মেম্বারশিপ গ্রহণ করুন
+      </ion-card-header>
+      <ion-card-content>
+          <ion-card-title color="primary">
+              প্রিমিয়াম মেম্বারশিপ এর সুবিধা
+            </ion-card-title>
+          <section>    
+          <ul class="my-nav">
+            <li>সব ধরণের কনটেন্ট পড়তে, শুনতে ও দেখতে পাওয়া</li>
+            <li>বিজ্ঞাপন ছাড়া বিনোদন </li>
+            <li>বিভিন্ন প্রতিযোগিতা, কুইজে অংশ গ্রহণ করতে পারা </li>
+            <li>নিজস্ব কনটেন্ট প্রকাশ করতে পারা  </li>
+          </ul>
+        </section>
+        <ion-list>
+            <button ion-item color="secondary" (click)="openMembeshipPage()">
+              <ion-icon name="cart" item-start></ion-icon><span>
+              &#x20B9;200 <s>&#x20B9;500</s>  প্রতি বছর</span><ion-icon name="arrow-forward" float-right></ion-icon>
+            </button>
+
+          </ion-list>
+      </ion-card-content>
+
+      
+    </ion-card>
   
-  <div class="div-row"  *ngIf="!isUserLoggedIn">
-    <button ion-item  (click)="openLoginPage()">Login
-    </button>
-  </div>
-  <div class="div-row"  *ngIf="isUserLoggedIn">
-    <button ion-item  (click)="openLoginPage()">প্রোফাইল
-    </button>
-  </div>
+  <ion-grid >
+      <ion-row >
+        <ion-col col-6 col-md-4 col-xl-3 (click)="getTagPosts('competition', 'প্রতিযোগিতা')">
+          <img class="tam-image" src="./assets/protijogita.jpg">
+        </ion-col>
+        <ion-col col-6 col-md-4 col-xl-3 (click)="getTagPosts('result', 'ফলাফল')">
+          <img class="tam-image" src="./assets/result.jpg">
+        </ion-col>
+        <ion-col col-6 col-md-4 col-xl-3 (click)="getTagPosts('announcement', 'ঘোষণা')">
+          <img class="tam-image" src="./assets/ghosona.jpg">
+        </ion-col>
+        <ion-col col-6 col-md-4 col-xl-3 (click)="getTagPosts('news', 'সাহিত্য খবর')">
+          <img class="tam-image" src="./assets/news.jpg">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 
-
-  <div class="div-row"  style="text-align: center; margin-top: 70px;">
-    <h2>Razorpay Ionic 3 Demo</h2>
-    <img style="width: 300px; display: inline-block" src="./assets/icon/demo-tshirt.svg" />
-
-    
-  </div>
-
-	<h1>ঘোষণা </h1>
-  <ion-slides class="slider" >
-
-  <ion-slide *ngFor="let post of announcement_posts" (click)="openReadPage(post)">
-     <img src="{{post.featured_image_src}}">
-  </ion-slide>  
-
-  </ion-slides>
-  <h1>নিউজ</h1>
-  <ion-list>
-        
-
-        <button ion-item *ngFor="let post of news_posts" (click)="openReadPage(post)">
-            <ion-thumbnail item-start>
-              <img src="{{post.featured_image_src}}">
-            </ion-thumbnail>
-            <ion-label>
-              <h2 [innerHTML]="post.title.rendered"></h2>
-              <p [innerHTML]="post.content.rendered | slice:0:200"> </p>
-            </ion-label>
-        </button>
-
-        
-    </ion-list>
+	
 
 </ion-content>

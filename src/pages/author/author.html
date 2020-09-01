@@ -1,0 +1,86 @@
+<!--
+  Generated template for the AuthorPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>author</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-card>
+
+  <ion-item>
+    <!-- <ion-avatar item-start>
+      <img src="{{author.photo['96']}}">
+    </ion-avatar> -->
+    <h2 class="card-title">{{author.name}}</h2>
+    <p></p>
+  </ion-item>
+
+	<div *ngIf="author.photo['250']"  (click)="openAuthorPage(author)">
+		<img class="tam-image" src="{{author.photo['250']}}" />
+	</div>
+	<div *ngIf="!author.photo['250']"  (click)="openAuthorPage(author)">
+		<img class="tam-image" src="../../assets/imgs/default-avatar.png" />  
+	</div>
+
+  <ion-card-content>
+    <p class="card-subtitle">{{author.description}}</p>
+  </ion-card-content>
+
+ <!--  <ion-row>
+    <ion-col>
+      <button ion-button icon-start clear small>
+        <ion-icon name="thumbs-up"></ion-icon>
+        <div>12 Likes</div>
+      </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button icon-start clear small>
+        <ion-icon name="text"></ion-icon>
+        <div>4 Comments</div>
+      </button>
+    </ion-col>
+    <ion-col align-self-center text-center>
+      <ion-note>
+        11h ago
+      </ion-note>
+    </ion-col>
+  </ion-row> -->
+  
+
+</ion-card>
+
+<ion-list>
+        
+
+       <div ion-item *ngFor="let post of posts" >
+            <ion-thumbnail item-start (click)="openReadPage(post)">
+              <img src="{{post.thumbnail_image_src}}">
+            </ion-thumbnail>
+            <ion-label color="primary" text-wrap>
+              <h4 class="post-title"  [innerHTML]="post.post_title" (click)="openReadPage(post)"></h4>
+              <p class="post-subtitle">{{post.author_display_name}}</p>
+              <div class="post-category" *ngFor="let category of post.post_categories_details" (click)="getCategoryPosts(category)"> *{{category.name}} &nbsp; </div>
+              
+              <!-- <p [innerHTML]="post.content | slice:0:200"> </p> -->
+            </ion-label>
+        </div>
+
+        
+      </ion-list>
+      <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+       <ion-infinite-scroll-content
+          loadingSpinner="bubbles"
+          loadingText="আরো পড়ুন..." *ngIf="pagingEnabled">
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+      <ion-label *ngIf="!pagingEnabled" > <p align="center">আর কোনো লেখা নেই।</p> </ion-label>
+
+
+
+</ion-content>

@@ -22,9 +22,11 @@
   </ion-item>
  
   <iframe *ngIf="videoEnabled" [src]="videoURL" width="100%" height="300" scrolling="no" frameborder="no"  allow="autoplay; fullscreen" allowfullscreen></iframe>
+
+  <iframe *ngIf="audioEnabled" width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" [src]="audioURL"></iframe>
   
 
-  <img *ngIf="!videoEnabled" src="{{post.featured_image_src}}">
+  <img *ngIf="!(videoEnabled || audioEnabled)" src="{{post.featured_image_src}}">
   <ion-card-title class="card-title"   [innerHTML]="post.title_rendered"></ion-card-title>
 
   <ion-row>
@@ -56,13 +58,13 @@
   </ion-row>
 
   <ion-card-content>
-    <audio-track #audio   [track]="selectedTrack" (onFinish)="onTrackFinished($event)" *ngIf="audioEnabled">
+    <!-- <audio-track #audio   [track]="selectedTrack" (onFinish)="onTrackFinished($event)" *ngIf="audioEnabled">
     <h2 class="card-subtitle">
     <ion-icon color="danger" name="headset"></ion-icon> অডিও শুনুন
     </h2>
     <audio-track-play dark [audioTrack]="audio"><ion-spinner></ion-spinner></audio-track-play>
     <audio-track-progress-bar dark duration progress [audioTrack]="audio" [ngStyle]="{visibility: audio.completed > 0 ? 'visible' : 'hidden'}"></audio-track-progress-bar>
-    </audio-track>
+    </audio-track> -->
 
     <p class="lg-text" [innerHTML]="post.content_rendered">
       </p>
