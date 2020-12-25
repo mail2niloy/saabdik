@@ -7,6 +7,9 @@ import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { StreamingMedia } from '@ionic-native/streaming-media/ngx';
 import { Media, MediaObject } from '@ionic-native/media/ngx';
 import { IonicStorageModule } from '@ionic/storage';
+import { FileTransfer } from '@ionic-native/file-transfer/ngx';
+import { File } from '@ionic-native/file/ngx';
+import { DocumentViewer } from '@ionic-native/document-viewer/ngx';
 
 
 import { AboutPage } from '../pages/about/about';
@@ -23,6 +26,7 @@ import { ProfilePage } from '../pages/profile/profile';
 import { MembershipPage } from '../pages/membership/membership';
 import { AudioPlayerPage } from '../pages/audio-player/audio-player';
 import { AuthorPage } from '../pages/author/author';
+import { SeriesPage } from '../pages/series/series';
 
 import { CommonHeaderComponent } from '../components/common-header/common-header';
 import { CommonSideMenuComponent } from '../components/common-side-menu/common-side-menu';
@@ -63,6 +67,7 @@ export function myCustomAudioProviderFactory() {
     SearchPage,
     LoginPage,
     ProfilePage,
+    SeriesPage,
     MembershipPage,
     AudioPlayerPage,
     TabsPage,
@@ -91,6 +96,7 @@ export function myCustomAudioProviderFactory() {
     SearchPage,
     LoginPage,
     ProfilePage,
+    SeriesPage,
     MembershipPage,
     AudioPlayerPage,
     TabsPage,
@@ -109,7 +115,10 @@ export function myCustomAudioProviderFactory() {
     SocialSharing,
     BasicService,
     StreamingMedia,
-    Media
+    Media,
+    File,
+    FileTransfer,    
+    DocumentViewer
   ]
 })
 export class AppModule {}

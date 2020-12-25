@@ -22,6 +22,9 @@
     "@ionic-native/android-permissions": "^5.24.0",
     "@ionic-native/core": "^5.28.0",
     "@ionic-native/diagnostic": "^5.26.0",
+    "@ionic-native/document-viewer": "^5.30.0",
+    "@ionic-native/file": "^5.30.0",
+    "@ionic-native/file-transfer": "^5.30.0",
     "@ionic-native/google-plus": "^5.26.0",
     "@ionic-native/in-app-browser": "^5.24.0",
     "@ionic-native/ionic-webview": "^5.26.0",
@@ -69,6 +72,8 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.2.4",
+    "cordova-plugin-document-viewer": "^0.9.13",
+    "cordova-plugin-file-transfer": "^1.7.1",
     "typescript": "2.6.2"
   },
   "description": "An Ionic project",
@@ -100,7 +105,10 @@
         "ANDROID_SUPPORT_VERSION": "27.+"
       },
       "cordova-plugin-media": {},
-      "cordova-sqlite-storage": {}
+      "cordova-sqlite-storage": {},
+      "cordova-plugin-file-transfer": {},
+      "cordova-plugin-file": {},
+      "cordova-plugin-document-viewer": {}
     },
     "platforms": [
       "android"

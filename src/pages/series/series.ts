@@ -2,64 +2,48 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { RemoteDataProvider } from '../../providers/remote-data/remote-data';
 import { ReadPage } from '../read/read';
+
 /**
- * Generated class for the PostsPage page.
+ * Generated class for the SeriesPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
 
 @Component({
-  selector: 'page-posts',
-  templateUrl: 'posts.html',
+  selector: 'page-series',
+  templateUrl: 'series.html',
 })
-export class PostsPage {
-  loading:any;
-  category:any;
-  tag:any;
-  type:any;
-  title:any;
+export class SeriesPage {
+  series: any = []; 
   posts:any = [];  
   data: any = [];
   page = 1;
-  per_page = 7;
+  per_page = 7;  
+  loading:any;
   errorMessage:any;
   public pagingEnabled: boolean = true;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private loadingController: LoadingController, public RemoteDataProvider: RemoteDataProvider) {
-  	this.type = this.navParams.get('type');
-    this.title = this.navParams.get('title');
-    if(this.type=="tag"){
-      this.tag = this.navParams.get('tag');
-    }
-    else if(this.type=="category"){
-      this.category = this.navParams.get('category');
-    }
-    
-    
+  constructor(public navCtrl: NavController, 
+  	public navParams: NavParams, 
+  	private loadingController: LoadingController, 
+  	public RemoteDataProvider: RemoteDataProvider){
+  	this.series = this.navParams.get('series');
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PostsPage');
+    console.log('ionViewDidLoad SeriesPage');
     this.presentLoadingDefault();
-    if(this.type=="tag"){
-      this.RemoteDataProvider.listTagPosts(this.tag, this.per_page, this.page).subscribe(data => {
-        this.posts = data;
-        this.loading.dismiss();
-        console.log(data)  });
-    }
-     else if(this.type=="category"){
-      this.RemoteDataProvider.listCategoryPosts(this.category.id, this.per_page, this.page).subscribe(data => {
-        this.posts = data;
-        this.loading.dismiss();
-        console.log(data)  });
-    }
+	this.RemoteDataProvider.listSeriesPosts(this.series.slug, this.per_page, this.page).subscribe(data => {
+	this.posts = data;
+	this.loading.dismiss();
+	console.log(data)  });
     
   }
 
   doInfinite(infiniteScroll) {
     this.page = this.page+1;
     setTimeout(() => {
-      this.RemoteDataProvider.listCategoryPosts(this.category.id, this.per_page, this.page)
+      this.RemoteDataProvider.listSeriesPosts(this.series.slug, this.per_page, this.page)
          .subscribe(
            res => {
             //this.latest_posts = res;
@@ -96,9 +80,6 @@ export class PostsPage {
 
     this.loading.present();
     
-  }
-  getCategoryPosts(category: any){
-    this.navCtrl.push(PostsPage, {category:category})
   }
   openReadPage(post:any[]){
     this.navCtrl.push(ReadPage, {post:post})

@@ -176,6 +176,24 @@
   </div>
 
   <div class="div-row"  *ngIf="homeEnabled">
+    <h4 class="section-title">সিরিজ </h4>
+    <div class="div-slides">
+      <ion-slides   pager="false" slidesPerView="2.6" >
+        <ion-slide *ngFor="let series of all_series" (click)="openSeriesPage(series)">
+          
+                       
+              <ion-label>
+              <img class="tam-image"src="{{series.icon}}" />  
+              <h4 class="tam-title" text-wrap  [innerHTML]="series.name"></h4><!-- 
+              <p class="tam-author">{{post.author_display_name}}</p> -->
+              </ion-label>
+          
+        </ion-slide>
+      </ion-slides>
+    </div>
+  </div>
+
+  <div class="div-row"  *ngIf="homeEnabled">
     <h4 class="section-title">লাইফস্টাইল </h4>
     <div class="div-slides">
       <ion-slides   pager="false" slidesPerView="2.6" >

@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { ReadPage } from '../read/read';
+import { SeriesPage } from '../series/series';
 import { AuthorPage } from '../author/author';
 import { SearchPage } from '../search/search';
 import { RemoteDataProvider } from '../../providers/remote-data/remote-data';
@@ -21,6 +22,7 @@ export class HomePage {
   remoteData: Observable<any>;
 	posts: any = [];
   authors: any = []; 
+  all_series: any = []; 
   data: any = [];
   latest_posts: any = [];
   popular_posts: any = [];
@@ -124,11 +126,13 @@ export class HomePage {
     Observable.forkJoin(
       this.RemoteDataProvider.listUsers('author', 10, 1),
       this.RemoteDataProvider.listFrontPagePosts(),
+      this.RemoteDataProvider.listSeries(),
       )
       .subscribe(data => {
         this.dataLoaded = true;        
         this.data = data;
-         this.authors = this.data[0];
+        this.authors = this.data[0];
+        this.all_series = this.data[2];
         this.latest_posts = this.data[1]['latest'];
         this.popular_posts = this.data[1]['popular'];
         this.khalar_dunia_posts = this.data[1]['khalar-dunia'];
@@ -256,6 +260,10 @@ export class HomePage {
 
   openReadPage(post:any[]){
     this.navCtrl.push(ReadPage, {post:post})
+  }
+
+  openSeriesPage(series:any[]){
+    this.navCtrl.push(SeriesPage, {series:series})
   }
 
   openAuthorPage(author:any[]){

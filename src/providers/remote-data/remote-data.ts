@@ -194,6 +194,28 @@ export class RemoteDataProvider {
                                   .catch(error => error);
   }
 
+  listSeries()
+  {
+    //this.url = Config.WORDPRESS_REST_API_URL+'posts?page='+page+'&per_page='+per_page+'&filter[cat]='+cat_id+'&date='+this.dateTime+'&_embed';
+    //this.url = Config.WORDPRESS_SAABDIK_REST_API_URL+'filtered_posts?paged='+page+'&posts_per_page='+per_page+'&tag='+tag+'&date='+this.dateTime;
+    this.url = Config.WORDPRESS_SAABDIK_REST_API_URL+'series?date='+this.dateTime;
+    
+    console.log(this.url);
+    return this.http.get(this.url).map(res => res )
+                                  .catch(error => error);
+  }
+
+  listSeriesPosts(series_slug:any, per_page:any, page:any)
+  {
+    //this.url = Config.WORDPRESS_REST_API_URL+'posts?page='+page+'&per_page='+per_page+'&filter[cat]='+cat_id+'&date='+this.dateTime+'&_embed';
+    //this.url = Config.WORDPRESS_SAABDIK_REST_API_URL+'filtered_posts?paged='+page+'&posts_per_page='+per_page+'&tag='+tag+'&date='+this.dateTime;
+    this.url = Config.WORDPRESS_SAABDIK_REST_API_URL+'series_posts?series_slug='+series_slug+'&paged='+page+'&posts_per_page='+per_page+'&date='+this.dateTime;
+    
+    console.log(this.url);
+    return this.http.get(this.url).map(res => res )
+                                  .catch(error => error);
+  }
+
   listSearchPosts(searchText:any, per_page:any, page:any)
   {
     this.url = Config.WORDPRESS_SAABDIK_REST_API_URL+'filtered_posts?search_title_like='+searchText+'&paged='+page+'&posts_per_page='+per_page+'&date='+this.dateTime;
@@ -202,7 +224,7 @@ export class RemoteDataProvider {
                                   .catch(error => error);
   }
 
-  
+
 
   listUsers(type:any, per_page:any, page:any)
   {

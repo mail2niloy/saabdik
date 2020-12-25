@@ -10,6 +10,10 @@ import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { AuthenticationService } from '../../services/authentication.service';
 import { RemoteDataProvider } from '../../providers/remote-data/remote-data';
 import { MembershipPage } from '../membership/membership';
+import { FileTransfer } from '@ionic-native/file-transfer/ngx';
+import { File } from '@ionic-native/file/ngx';
+import { DocumentViewer, DocumentViewerOptions } from '@ionic-native/document-viewer/ngx';
+import { Platform } from 'ionic-angular';
 
 /**
  * Generated class for the MenuPage page.
@@ -39,7 +43,13 @@ export class MenuPage {
     private loadingController: LoadingController, 
     public RemoteDataProvider: RemoteDataProvider,
     public authenticationService: AuthenticationService,
-    private gp: GooglePlus) {
+    private gp: GooglePlus,
+    private document: DocumentViewer,
+    private file: File,
+    private transfer: FileTransfer,
+    private platform:Platform
+
+    ) {
 
 
 
@@ -92,6 +102,29 @@ export class MenuPage {
 
     this.loading.present();
     
+  }
+
+  downloadAndOpenPDF()
+  {
+    let path = null;
+    if(this.platform.is('ios'))
+    {
+      path=this.file.documentsDirectory
+    }
+    else
+    {
+      path=this.file.dataDirectory;
+    }
+
+    const transfer = this.transfer.create();
+    let url = 'https://saabdik.com/wp-content/uploads/2020/12/rabiobasoriyo16.pdf';
+    transfer.download(url, path + 'file.pdf').then((entry) => {
+      console.log('download complete: ' + entry.toURL());
+      //let url = entry.toURL();
+        this.document.viewDocument(entry.toURL(), 'application/pdf',{});
+    }, (error) => {
+      // handle error
+    });
   }
 
   
